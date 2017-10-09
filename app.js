@@ -4,29 +4,67 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 
+require('./appserver/models/db');
 
-//Crear conexión con m
+var routes = require('./appserver/routes/index');
+
+/*
+
+/////////////////////////////////
+/////////   MONGODB    /////////
+///////////////////////////////
+
+//Crear conexión con mongoose
 var dbURI = 'mongodb://localhost/';
 mongoose.connect(dbURI);
+
+//eventos de conexion mongoose
 mongoose.connection.on('connected', function () {
   console.log('Mongoose connected to ' + dbURI);
-});
-mongoose.connection.on('error', function (err) {
+  });
+  mongoose.connection.on('error',function (err) {
   console.log('Mongoose connection error: ' + err);
-});
-mongoose.connection.on('disconnected', function () {
+  });
+  mongoose.connection.on('disconnected', function () {
   console.log('Mongoose disconnected');
-});
+  });
+
+//Definicion esquema cliente
+var schemaCliente = new mongoose.Schema({
+    nombre:String,
+    apellidos:String,
+    dni:{type: String, unique: true},
+    direccion:String
+ });
+
+mongoose.model('Cliente', schemaCliente);
+/////////////////////////////////
+////////////////////////////////
+///////////////////////////////
+
+
+*/
 
 //var sample = require('./routes/sample');
 
 var app = express();
 
+//////////////////////////////////////
+////////  PETICIONES GET  ///////////
+/////////////////////////////////////
+
+
+/////////////////////////////////
+////////////////////////////////
+///////////////////////////////
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use('/', routes);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
