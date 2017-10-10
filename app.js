@@ -4,61 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//var mongoose = require('mongoose');
 
 require('./appserver/models/db');
 
 var routes = require('./appserver/routes/index');
 
-/*
-
-/////////////////////////////////
-/////////   MONGODB    /////////
-///////////////////////////////
-
-//Crear conexión con mongoose
-var dbURI = 'mongodb://localhost/';
-mongoose.connect(dbURI);
-
-//eventos de conexion mongoose
-mongoose.connection.on('connected', function () {
-  console.log('Mongoose connected to ' + dbURI);
-  });
-  mongoose.connection.on('error',function (err) {
-  console.log('Mongoose connection error: ' + err);
-  });
-  mongoose.connection.on('disconnected', function () {
-  console.log('Mongoose disconnected');
-  });
-
-//Definicion esquema cliente
-var schemaCliente = new mongoose.Schema({
-    nombre:String,
-    apellidos:String,
-    dni:{type: String, unique: true},
-    direccion:String
- });
-
-mongoose.model('Cliente', schemaCliente);
-/////////////////////////////////
-////////////////////////////////
-///////////////////////////////
-
-
-*/
-
-//var sample = require('./routes/sample');
-
 var app = express();
 
-//////////////////////////////////////
-////////  PETICIONES GET  ///////////
-/////////////////////////////////////
 
-
-/////////////////////////////////
-////////////////////////////////
-///////////////////////////////
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

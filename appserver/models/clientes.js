@@ -5,7 +5,8 @@ var clienteSchema = new mongoose.Schema({
     nombre:String,
     apellidos:String,
     dni:{type: String, unique: true},
-    direccion:String
+    telefono:String,
+    notas:String,
  });
 
 
