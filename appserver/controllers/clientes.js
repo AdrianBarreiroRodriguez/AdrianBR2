@@ -1,11 +1,18 @@
 
 var mongoose = require('mongoose');
-var cliente = mongoose.model('Cliente');
+var Cliente = mongoose.model('Cliente');
 
 
 
 module.exports.recuperarClientes = function(request, response){
-    
+    Cliente.find({},function (err, clientes){
+        if(!err){
+            console.log(clientes);
+            response.send(clientes);
+        }else{
+            response.send();
+        }
+    });
 };
 
 module.exports.recuperarCliente = function(request, response){
@@ -14,25 +21,31 @@ module.exports.recuperarCliente = function(request, response){
 
 
 module.exports.agregarCliente = function(request, response){
-    console.log("///////////////////////");
-    console.log("Entro en agregarCliente");
-    console.log("///////////////////////");
     var datosCliente = request.body;
-    console.log("datos body:  " + request.body);
-    const cliente = new Cliente(datosCliente);
-    cliente.save((err) => {
+    console.log(datosCliente);
+    const objetoCliente = new Cliente(datosCliente);
+    objetoCliente.save((err) => {
 		if (err) {
 			console.error(err);
 		} else {
-			console.log("agregarCliente", customer);
+			console.log("agregarCliente", objetoCliente);
         }
     })
-    response.status(status);
-    response.json(content);
+    response.send();
 };
 
 module.exports.actualizarCliente = function(request, response){
-	
+    var idCliente = request.body;
+    Cliente.findOne({dni:idCliente},
+        function(err, cliente) {
+            if(!err){
+                cliente.name = "Simon";
+                cliente.save(function(err,cliente){
+                    console.log('User saved:', cliente);
+                    });
+            }
+        }
+    );
 };
 
 

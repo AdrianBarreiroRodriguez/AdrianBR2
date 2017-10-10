@@ -17,7 +17,11 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use('/', routes);
+//app.use(bodyParser());
+
+
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -29,6 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //// Nuevas Rutas van aqui:
 //app.use('/sample', sample);
+
+app.use('/', routes);
 
 //Front End
 app.all("*", (req, res) => {
