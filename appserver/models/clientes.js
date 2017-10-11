@@ -11,3 +11,4 @@ var clienteSchema = new mongoose.Schema({
 
 
 mongoose.model('Cliente', clienteSchema);
+
