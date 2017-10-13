@@ -1,5 +1,5 @@
-clientes.component('agregar-cliente', {
-    templateUrl: 'agregar-cliente/agregar-cliente.template.html',
+moduleClientes.component('agregarCliente', {
+    templateUrl: 'app/clientes/agregar-cliente/agregar-cliente.template.html',
     controller: function (){
         
     }

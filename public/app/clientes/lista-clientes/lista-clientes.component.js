@@ -1,5 +1,5 @@
-clientes.component('lista-cliente', {
-    templateUrl: 'lista-cliente/lista-cliente.template.html',
+moduleClientes.component('listaCliente', {
+    templateUrl: 'app/clientes/lista-cliente/lista-clientes.template.html',
     controller: function (){
         
     }
