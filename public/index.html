@@ -18,14 +18,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
 	<script src="app/clientes/ModuleClientes.js"></script>
-	<script src="app/clientes/agregar-cliente/agregar-cliente.component.js"></script>
-	<script src="app/clientes/detalle-cliente/detalle-cliente.component.js"></script>
 	<script src="app/clientes/lista-clientes/lista-clientes.component.js"></script>
 
 </head>
-	<body ng-app="ModuleClientes">
-		<lista-cliente></lista-cliente>
-		<detalle-cliente></detalle-cliente>
-		<agregar-cliente></agregar-cliente>
+	<body>
+		<header>
+
+		</header>
+		<ng-view>
+			
+		</ng-view>
+		<footer>
+
+		</footer>
 	</body>
 </html>

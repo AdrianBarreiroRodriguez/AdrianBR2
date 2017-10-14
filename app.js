@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //// Nuevas Rutas van aqui:
 //app.use('/sample', sample);
 
-app.use('/', routes);
+app.use('/api', routes);
 
 //Front End
 app.all("*", (req, res) => {

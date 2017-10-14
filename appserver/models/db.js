@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var dbURI = 'mongodb://localhost/veterinaria';
 
 
-mongoose.connect(dbURI);
+mongoose.connect(dbURI,{useMongoClient:true});
 
 // CONNECTION EVENTS
 mongoose.connection.on('connected', function() {
