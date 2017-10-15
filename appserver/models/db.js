@@ -18,3 +18,4 @@ mongoose.connection.on('disconnected', function() {
 
 // BRING IN YOUR SCHEMAS & MODELS
 require('./clientes');
+require('./mascota');
