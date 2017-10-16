@@ -18,16 +18,26 @@
 	
 	<script src="/app/app.module.js"></script>
 	<script src="/app/app.config.js"></script>
-	
+
+	<script src="app/lista-clientes-module/lista-clientes-module.js"></script>
+	<script src="app/lista-clientes-module/lista-clientes-module.component.js"></script>
+
 	<script src="/app/sample-module/sample-module.module.js"></script>
 	<script src="/app/sample-module/sample-module.component.js"></script>
 
 	</head>
 <body>
+	<header>
+		<a href="/clientes">Lista Clientes</a>
+		<a href="">Agregar Cliente</a>
+	</header>
 
 	<div>
 		<div ng-view></div>
 	</div>
+	<footer>
+
+	</footer>
 
 </body>
 </html>
