@@ -4,4 +4,6 @@ angular.module('petStore', [
     'ngResource',
     'ngRoute',
     'listaClientesModule',
+    'clienteDetalleModule',
+    //'insertarClienteModule'
 ]);

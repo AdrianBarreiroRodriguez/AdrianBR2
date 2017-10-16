@@ -2,7 +2,14 @@
     <h1>Lista clientes</h1>
     <ul>
         <li ng-repeat='cliente in listaClientes'>
-            <span>{{cliente.nombre}} </span><span> {{cliente.apellidos}} </span><span> {{cliente.dni}}</span>
+            <div>
+                <span>{{cliente._id}}</span>
+                <span>{{cliente.nombre}}</span>
+                <span> {{cliente.apellidos}}</span>
+                <span> {{cliente.dni}}</span>
+                <input type="button" value="detalle" ng-click="irDetalle(cliente._id)">
+            </div>
         </li>
     </ul>
+    <input type="button" value="insertar" ng-click="ingresarCliente()">
 </div>
