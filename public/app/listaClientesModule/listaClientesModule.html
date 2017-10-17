@@ -1,13 +1,12 @@
 <div ng-controller="ListaClientesController">
     <h1>Lista clientes</h1>
     <ul>
-        <li ng-repeat='cliente in listaClientes'>
+        <li ng-repeat="cliente in listaClientes">
             <div>
-                <a ng-href="/cliente/{{cliente._id}}"><span>{{cliente._id}}</span></a>
+                <a ng-href="/clientes/{{cliente._id}}">{{cliente._id}}</a>
                 <span> {{cliente.nombre}} </span>
                 <span> {{cliente.apellidos}} </span>
                 <span> {{cliente.dni}} </span>
-                <input type="button" value="detalle" ng-click="irDetalle(cliente._id)">
             </div>
         </li>
     </ul>

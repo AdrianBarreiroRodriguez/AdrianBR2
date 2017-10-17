@@ -1,20 +1,19 @@
 'use strict';
+angular.module('listaClientesModule', []);
 
 angular.module('listaClientesModule')
     .component('listaClientesModule', {
-        templateUrl:'/app/lista-clientes-module/lista-clientes-module.html',
+        templateUrl:'/app/listaClientesModule/listaClientesModule.html',
         controller: function($scope, $http) {
-            console.log("Incializando lista-clientes-module")
+            console.log("Inicializando lista-clientes-module");
         }
-    }).controller('ListaClientesController', function($scope, $http, $location){
+    })
+    .controller('ListaClientesController', function($scope, $http, $location){
         $http.get('api/clientes').then(function (response){
             $scope.listaClientes = response.data;
         });
-        
-        /*$scope.irDetalle = function(id){
-            $window.location.href = 'http://localhost:3000/cliente/'+id;
-        };*/
-        
+
+
         $scope.ingresarCliente = function(){
             $location.path("/insertar/cliente/");
         }

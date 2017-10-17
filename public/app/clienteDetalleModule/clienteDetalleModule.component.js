@@ -1,15 +1,15 @@
 'use strict';
-angular.module('clienteDetalleModule', []);
+angular.module('clienteDetalleModule',[]);
 angular.module('clienteDetalleModule')
     .component('clienteDetalleModule', {
-        templateUrl:'/app/cliente-detalle-module/cliente-detalle-module.html',
+        templateUrl:'/app/clienteDetalleModule/clienteDetalleModule.html',
         controller: function($scope, $http, $routeParams){
             console.log("Inicializando cliente-detalle-module");
             var idCliente = $routeParams['id'];
-            $http.get('/clientes/' + idCliente).then(function(response){
+            $http.get('api/clientes/' + idCliente).then(function(response){
                 $scope.cliente = response.data;
             });
-            $http.get('/clientes/mascotas/' + idCliente).then(function(response){
+            $http.get('api/clientes/mascotas/' + idCliente).then(function(response){
                 $scope.listaMascotas = response.data;
             });
         }

@@ -1,0 +1,15 @@
+<div>
+    <div><span>ID</span><span> {{cliente._id}}</span></div>
+    <div><span>Nombre</span><span> {{cliente.nombre}}</span></div>
+    <div><span>Apellidos</span><span> {{cliente.apellidos}}</span></div>
+    <div><span>DNI</span><span> {{cliente.dni}}</span></div>
+    <div><span>Telefono</span><span> {{cliente.telefonos}}</span></div>
+    <div><span>Notas</span><span> {{cliente.notas}}</span></div>
+    <ul>
+        <li ng-repeat="mascota in listaMascotas">
+            <span> {{mascota.nombre}}</span>
+            <span> {{mascota.raza}}</span>
+            <span> {{mascota.especie}}</span>
+        </li>
+    </ul>
+</div>
