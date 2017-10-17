@@ -11,9 +11,10 @@ angular.module('listaClientesModule')
             $scope.listaClientes = response.data;
         });
         
-        $scope.irDetalle = function(id){
+        /*$scope.irDetalle = function(id){
             $window.location.href = 'http://localhost:3000/cliente/'+id;
-        };
+        };*/
+        
         $scope.ingresarCliente = function(){
             $location.path("/insertar/cliente/");
         }

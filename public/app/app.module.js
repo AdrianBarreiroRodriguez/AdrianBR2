@@ -1,9 +1,8 @@
 'use strict';
 
-angular.module('petStore', [
+angular.module('petStore',[
     'ngResource',
     'ngRoute',
     'listaClientesModule',
-    'clienteDetalleModule',
-    //'insertarClienteModule'
+    'clienteDetalleModule'
 ]);
