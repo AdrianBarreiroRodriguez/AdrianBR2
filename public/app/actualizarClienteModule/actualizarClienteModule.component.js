@@ -6,10 +6,14 @@ angular.module('actualizarClienteModule')
         controller: function($scope, $http) {
             console.log("Inicializando actualizar-clientes-module")
         }
-    }).controller('ActualizarClienteController', function($scope, $http){
+    }).controller('ActualizarClienteController', function($scope, $http, $routeParams){
         $scope.cliente = {};
+        $http.get('/api/clientes/' + $routeParams['id']).then( function(response){
+            $scope.cliente = response.data;
+        });
+
         $scope.actualizarCliente = function(){
-            $http.put('api/clientes' + $scope.cliente._id, $scope.cliente).then(function(response){
+            $http.put('api/clientes/' + $scope.cliente._id, $scope.cliente).then(function(response){
                 console.log(response);
             });
         }

@@ -18,7 +18,7 @@ angular.module('clienteDetalleModule')
             };
 
             $scope.irActualizarCliente = function(){
-                $location.path("/actualizar/cliente");
+                $location.path("/actualizar/cliente/" + $scope.cliente._id);
             };
 
             $scope.insertarMascota = function(){
