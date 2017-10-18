@@ -5,6 +5,7 @@
     <div><span>DNI</span><span> {{cliente.dni}}</span></div>
     <div><span>Telefono</span><span> {{cliente.telefonos}}</span></div>
     <div><span>Notas</span><span> {{cliente.notas}}</span></div>
+    <input type="button" value="actualizar" ng-click="irActualizarCliente()">
     <ul>
         <li ng-repeat="mascota in listaMascotas">
             <div>
@@ -15,4 +16,5 @@
             </div>
         </li>
     </ul>
+    <input type="button" value="insertar" ng-click="insertarMascota()">
 </div>

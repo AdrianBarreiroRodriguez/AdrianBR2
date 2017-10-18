@@ -6,5 +6,7 @@ angular.module('petStore',[
     'listaClientesModule',
     'clienteDetalleModule',
     'insertarClienteModule',
-    'mascotaDetalleModule'
+    'mascotaDetalleModule',
+    'actualizarClienteModule',
+    'insertarMascotaModule'
 ]);

@@ -1,0 +1,28 @@
+<div ng-controller="ActualizarClienteController">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" ng-model="cliente.nombre">
+        </div>
+        <div>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos" ng-model="cliente.apellidos">
+        </div>
+        <div>
+            <label for="dni">DNI</label>
+            <input type="text" name="dni" ng-model="cliente.dni">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" ng-model="cliente.email">
+        </div>
+        <div>
+            <label for="telefono">Telefono</label>
+            <input type="text" name="telefono" ng-model="cliente.telefono">
+        </div>
+        <div>
+            <label for="notas">Notas</label>
+            <input type="text" name="notas" ng-model="cliente.notas">
+        </div>
+        <input type="button" value="actualizar" ng-click="actualizarCliente()">
+    </div>
+

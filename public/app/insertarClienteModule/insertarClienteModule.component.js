@@ -8,7 +8,7 @@ angular.module('insertarClienteModule')
         }
     }).controller('InsertarClienteController', function($scope, $http, $location){
         $scope.cliente = {};
-        $scope.insertar = function(){
+        $scope.insertarCliente = function(){
             $http.post('api/clientes', $scope.cliente).then(function(response){
                 console.log(response);
             });

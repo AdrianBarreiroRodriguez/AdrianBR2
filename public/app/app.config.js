@@ -19,8 +19,14 @@ angular.module('petStore')
             .when("/insertar/cliente",{
                 template: "<insertar-cliente-module></insertar-cliente-module>"
             })
+            .when("/actualizar/cliente", {
+                template: "<actualizar-cliente-module></actualizar-cliente-module>"        
+            })
             .when("/mascota/:id", {
                 template: "<mascota-detalle-module></mascota-detalle-module>"
+            })
+            .when("/insertar/mascota/:id",{
+                template: "<insertar-mascota-module></insertar-mascota-module>"
             })
             .otherwise({
                 template: "Other"

@@ -15,7 +15,15 @@ angular.module('clienteDetalleModule')
 
             $scope.irDetalleMascota = function(id){
                 $location.path("/mascota/" + id);
-            }
+            };
+
+            $scope.irActualizarCliente = function(){
+                $location.path("/actualizar/cliente");
+            };
+
+            $scope.insertarMascota = function(){
+                $location.path("/insertar/mascota/" + $scope.cliente._id);
+            };
         }
     });
 

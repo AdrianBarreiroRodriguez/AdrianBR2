@@ -1,0 +1,31 @@
+<div ng-controller="InsertarMascotaController">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" ng-model="mascota.nombre">
+        </div>
+        <div>
+            <label for="especie">Especie</label>
+            <input type="text" name="especie" ng-model="mascota.especie">
+        </div>
+        <div>
+            <label for="raza">Raza</label>
+            <input type="text" name="raza" ng-model="mascota.raza">
+        </div>
+        <div>
+            <label for="fechaNacimiento">Fecha Nacimiento</label>
+            <input type="text" name="fechaNacimiento" ng-model="mascota.fechaNacimiento">
+        </div>
+        <div>
+            <label for="numeroChip">Numero chip</label>
+            <input type="text" name="numeroChip" ng-model="mascota.numeroChip">
+        </div>
+        <div>
+            <label for="urlImagen">URL imagen</label>
+            <input type="text" name="urlImagen" ng-model="mascota.urlImagen">
+        </div>
+        <div>
+            <label for="descripcion">Descripcion</label>
+            <input type="text" name="descripcion" ng-model="mascota.descripcion">
+        </div>
+        <input type="button" value="insertar" ng-click="insertarMascota()">
+</div>
