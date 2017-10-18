@@ -13,7 +13,7 @@ angular.module('listaClientesModule')
             $scope.listaClientes = response.data;
         });
 
-        $scope.irDetalle = function(id){
+        $scope.irDetalleCliente = function(id){
             $location.path("/clientes/" + id);
         }
 
