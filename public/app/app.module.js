@@ -8,5 +8,6 @@ angular.module('petStore',[
     'insertarClienteModule',
     'mascotaDetalleModule',
     'actualizarClienteModule',
-    'insertarMascotaModule'
+    'insertarMascotaModule',
+    'actualizarMascotaModule'
 ]);

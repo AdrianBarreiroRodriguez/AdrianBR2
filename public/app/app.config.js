@@ -28,6 +28,9 @@ angular.module('petStore')
             .when("/insertar/mascota/:id",{
                 template: "<insertar-mascota-module></insertar-mascota-module>"
             })
+            .when("/actualizar/mascota/:id",{
+                template: "<actualizar-mascota-module></actualizar-mascota-module>"
+            })
             .otherwise({
                 template: "Other"
             });

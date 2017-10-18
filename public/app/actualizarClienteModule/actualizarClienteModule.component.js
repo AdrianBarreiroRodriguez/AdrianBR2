@@ -13,7 +13,7 @@ angular.module('actualizarClienteModule')
         });
 
         $scope.actualizarCliente = function(){
-            $http.put('api/clientes/' + $scope.cliente._id, $scope.cliente).then(function(response){
+            $http.put('api/clientes/' + $scope.cliente._id, $scope.mascota).then(function(response){
                 console.log(response);
             });
         }
