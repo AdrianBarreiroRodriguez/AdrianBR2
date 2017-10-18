@@ -7,9 +7,11 @@
     <div><span>Notas</span><span> {{cliente.notas}}</span></div>
     <ul>
         <li ng-repeat="mascota in listaMascotas">
-            <span> {{mascota.nombre}}</span>
-            <span> {{mascota.raza}}</span>
-            <span> {{mascota.especie}}</span>
+            <div>
+                <span> {{mascota.nombre}}</span>
+                <span> {{mascota.especie}}</span>
+                <span> {{mascota.raza}}</span>
+            </div>
         </li>
     </ul>
 </div>

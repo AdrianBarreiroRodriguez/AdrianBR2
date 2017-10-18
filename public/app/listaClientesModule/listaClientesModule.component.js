@@ -13,6 +13,10 @@ angular.module('listaClientesModule')
             $scope.listaClientes = response.data;
         });
 
+        $scope.irDetalle = function(id){
+            $location.path("/clientes/" + id);
+        }
+
 
         $scope.ingresarCliente = function(){
             $location.path("/insertar/cliente/");

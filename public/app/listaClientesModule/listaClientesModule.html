@@ -3,10 +3,10 @@
     <ul>
         <li ng-repeat="cliente in listaClientes">
             <div>
-                <a ng-href="/clientes/{{cliente._id}}">{{cliente._id}}</a>
                 <span> {{cliente.nombre}} </span>
                 <span> {{cliente.apellidos}} </span>
                 <span> {{cliente.dni}} </span>
+                <input type="button" value="detalle" ng-click="irDetalle(cliente._id)">
             </div>
         </li>
     </ul>
