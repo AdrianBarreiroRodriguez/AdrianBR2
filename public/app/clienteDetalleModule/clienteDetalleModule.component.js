@@ -9,6 +9,7 @@ angular.module('clienteDetalleModule')
             $http.get('api/clientes/' + idCliente).then(function(response){
                 $scope.cliente = response.data;
             });
+
             $http.get('api/clientes/mascotas/' + idCliente).then(function(response){
                 $scope.listaMascotas = response.data;
             });
@@ -21,7 +22,7 @@ angular.module('clienteDetalleModule')
                 $location.path("/actualizar/cliente");
             };
 
-            $scope.insertarMascota = function(){
+            $scope.irInsertarMascota = function(){
                 $location.path("/insertar/mascota/" + $scope.cliente._id);
             };
         }
