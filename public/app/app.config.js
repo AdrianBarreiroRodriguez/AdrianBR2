@@ -19,7 +19,7 @@ angular.module('petStore')
             .when("/insertar/cliente",{
                 template: "<insertar-cliente-module></insertar-cliente-module>"
             })
-            .when("/actualizar/cliente", {
+            .when("/actualizar/cliente/:id", {
                 template: "<actualizar-cliente-module></actualizar-cliente-module>"        
             })
             .when("/mascota/:id", {
@@ -27,6 +27,9 @@ angular.module('petStore')
             })
             .when("/insertar/mascota/:id",{
                 template: "<insertar-mascota-module></insertar-mascota-module>"
+            })
+            .when("/actualizar/mascota/:id",{
+                template: "<actualizar-mascota-module></actualizar-mascota-module>"
             })
             .otherwise({
                 template: "Other"
