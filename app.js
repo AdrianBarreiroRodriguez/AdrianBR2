@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var moment = require('moment')
 require('./appserver/models/db');
 
 var routes = require('./appserver/routes/index');
@@ -16,9 +16,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 //app.use(bodyParser());
 
-//Las dos siguientes lineas muestran como convertir un String a un objeto JSON
-/*var stringJSON = '{"nombre":"Adrian", "apellidos": "Barreiro Rodriguez"}';
-var objetoJSON = JSON.parse(stringJSON);*/
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -30,6 +27,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //// Nuevas Rutas van aqui:
 //app.use('/sample', sample);
+
+////////////////////////////////////////////////
+////////////    PRUEBAS MOMENT     ////////////
+//////////////////////////////////////////////
+
+/*var fecha = moment('2016/25/07', 'YYYY/DD/MM');
+fecha.add(3, 'M');
+console.log(fecha);*/
+
+//////////////////////////////////////////////
+/////////////////////////////////////////////
+////////////////////////////////////////////
+
 
 app.use('/api', routes);
 

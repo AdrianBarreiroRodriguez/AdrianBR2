@@ -32,19 +32,37 @@ router.delete('/mascotas/:id', ctrlMascota.eliminarMascota);
 router.get('/citas/:fromDate/:toDate', function(request, response){
     var fechaInicio = request.params.fromDate;
     var fechaFin = request.params.toDate;
-    var calendarioCitas = ctrlCitas.calendarioDeCitas(fechaInicio, fechaFin);
-    response.send(calendarioCitas);
+    ctrlCitas.calendarioDeCitas(fechaInicio, fechaFin, response);
 });
 
 router.get('/citas/:id', function(request, response){
-    
+    var idCita = request.params.id;
+    var cita = ctrlCitas.recuperarCita(idCita);
+    response.send(cita);
 });
 
 router.post('/citas/', function(request, response){
-    
+    var cita = request.body;
+    var mensaje = ctrlCitas.guardarCita(cita);
+    if(mensaje == "error"){
+        response.status(400);
+        response.json(err);
+    }else{
+        response.status(200);
+        response.json('{"status":"success"}');
+    }
 });
 
 router.put('/citas/:id', function(request, response){
-    
+    var actualizacionCita = request.body;
+    var idCita = request.params.id;
+    var mensaje = ctrlCitas.actualizarCita(idCita, actualizacionCita);
+    if(mensaje == "error"){
+        response.status(400);
+        response.json(err);
+    }else{
+        response.status(200);
+        response.json('{"status":"success"}');
+    }
 });
 module.exports = router;
