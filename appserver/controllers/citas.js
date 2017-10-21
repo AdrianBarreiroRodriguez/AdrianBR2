@@ -3,8 +3,9 @@ var Cita = mongoose.model('Cita');
 var moment = require('moment');
 
 
-module.exports.calendarioDeCitas= function(fechaInicio, fechaFin, response){
-    var fechaInicioMoment = moment(fechaInicio);
+module.exports.calendarioDeCitas= function(request, response){
+    var fechaInicio = request.params.fromDate;
+    var fechaFin = request.params.toDate;
     Cita.find({'fechaInicio':{$gt:fechaInicio},'fechaInicio':{$lte:fechaFin}})
     .populate('idMascota')
     .exec(function (err, citas) {
@@ -25,31 +26,37 @@ module.exports.calendarioDeCitas= function(fechaInicio, fechaFin, response){
 }
 
 
-module.exports.recuperarCita = function (idCita){
+module.exports.recuperarCita = function (request, response){
+    var idCita = request.params.id;
     Cita.findById(idCita, function (err, cita) {
         if (!err) {
             console.log(cita);
-            return cita;
+            response.status(200);
+            response.json(cita);
         } else {
-            return "error";
+            response.send(500, err.message);
         }
     });
 }
 
 
-module.exports.guardarCita = function (cita){
+module.exports.guardarCita = function (request, response){
+    var cita = request.body;
     const objetoCita = new Cita(cita);
     objetoCita.save((err)=>{
         if (!err) {
-            return "success";
+            response.status(200);
+            response.json('{"status":"success"}');
         } else {
-            return "error";
+            response.send(500, err.message);
         }
     })
 }
 
 
-module.exports.actualizarCita = function(idCita, actualizacionCita){
+module.exports.actualizarCita = function(request, response){
+    var actualizacionCita = request.body;
+    var idCita = request.params.id;
     Cita.findById(idCita,
         function (err, cita) {
             if (!err) {
@@ -60,9 +67,10 @@ module.exports.actualizarCita = function(idCita, actualizacionCita){
                 cita.estado = actualizacionCita.estado;
                 mascota.save(function (err, cita) {
                     if (!err) {
-                        return "success";
+                        response.status(200);
+                        response.json('{"status":"success"}');
                     } else {
-                        return "error";
+                        response.send(500, err.message);
                     }
                 });
             }

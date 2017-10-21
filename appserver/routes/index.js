@@ -29,40 +29,15 @@ router.delete('/mascotas/:id', ctrlMascota.eliminarMascota);
 ////////////////   RUTAS CITA  /////////////////////
 ///////////////////////////////////////////////////
 
-router.get('/citas/:fromDate/:toDate', function(request, response){
+router.get('/citas/:fromDate/:toDate', ctrlCitas.calendarioDeCitas);/*function(request, response){
     var fechaInicio = request.params.fromDate;
     var fechaFin = request.params.toDate;
     ctrlCitas.calendarioDeCitas(fechaInicio, fechaFin, response);
-});
+});*/
 
-router.get('/citas/:id', function(request, response){
-    var idCita = request.params.id;
-    var cita = ctrlCitas.recuperarCita(idCita);
-    response.send(cita);
-});
+router.get('/citas/:id', ctrlCitas.recuperarCita);
 
-router.post('/citas/', function(request, response){
-    var cita = request.body;
-    var mensaje = ctrlCitas.guardarCita(cita);
-    if(mensaje == "error"){
-        response.status(400);
-        response.json(err);
-    }else{
-        response.status(200);
-        response.json('{"status":"success"}');
-    }
-});
+router.post('/citas/', ctrlCitas.guardarCita);
 
-router.put('/citas/:id', function(request, response){
-    var actualizacionCita = request.body;
-    var idCita = request.params.id;
-    var mensaje = ctrlCitas.actualizarCita(idCita, actualizacionCita);
-    if(mensaje == "error"){
-        response.status(400);
-        response.json(err);
-    }else{
-        response.status(200);
-        response.json('{"status":"success"}');
-    }
-});
+router.put('/citas/:id', ctrlCitas.actualizarCita);
 module.exports = router;

@@ -31,6 +31,9 @@ angular.module('petStore')
             .when("/actualizar/mascota/:id",{
                 template: "<actualizar-mascota-module></actualizar-mascota-module>"
             })
+            .when("/calendario",{
+                template: "<calendario-citas-module></calendario-citas-module>"
+            })
             .otherwise({
                 template: "Other"
             });

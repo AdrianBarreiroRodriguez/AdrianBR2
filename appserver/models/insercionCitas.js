@@ -7,7 +7,7 @@ console.log(date);
 Cita.create({
     fechaInicio:"2017-10-19T10:00:00.000Z",
     fechaFin:"2017-10-19T10:30:00.000Z",
-    idMascota:"59dcacb0da143e0e20eee3ef",
+    idMascota:"59e78b8f484c312f3c1abcf6",
     idVeterinario:"un veterinario",
     estado:0,
 }, function(err, cita){
@@ -19,9 +19,9 @@ Cita.create({
 });
 
 Cita.create({
-    fechaInicio:"2017-10-2T11:00:00.000Z",
-    fechaFin:"2017-10-2T11:30:00.000Z",
-    idMascota:"59e6f97e2ad4a11bd0252efc",
+    fechaInicio:"2017-10-02T11:00:00.000Z",
+    fechaFin:"2017-10-02T11:30:00.000Z",
+    idMascota:"59e78b8f484c312f3c1abcf6",
     idVeterinario:"un veterinario",
     estado:1,
 }, function(err, cita){
@@ -35,7 +35,7 @@ Cita.create({
 Cita.create({
     fechaInicio:"2017-10-19T12:30:00.000Z",
     fechaFin:"2017-10-19T13:00:00.000Z",
-    idMascota:"59e6f8952ad4a11bd0252efb",
+    idMascota:"59e78b8f484c312f3c1abcf6",
     idVeterinario:"un veterinario",
     estado:-1,
 }, function(err, cita){
@@ -47,9 +47,9 @@ Cita.create({
 });
 
 Cita.create({
-    fechaInicio:"2017-10-2T10:00:00.000Z",
-    fechaFin:"2017-10-2T10:30:00.000Z",
-    idMascota:"59e72b5e0b52542654148833",
+    fechaInicio:"2017-10-02T10:00:00.000Z",
+    fechaFin:"2017-10-02T10:30:00.000Z",
+    idMascota:"59e78b8f484c312f3c1abcf6",
     idVeterinario:"un veterinario",
     estado:0,
 }, function(err, cita){

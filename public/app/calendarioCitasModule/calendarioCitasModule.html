@@ -1,0 +1,22 @@
+<div ng-controller="CalendarioCitasController">
+    <input type="button" value="<<" ng-click="">
+    <h1>{{mes}}</h1>
+    <input type="button" value=">>" ng-click="">
+    <table>
+        <tr>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miercoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sabado</th>
+            <th>Domingo</th>
+        </tr>
+        <tr ng-repeat="semana in semanas">
+            <th ng-repeat= "dia in dias" ng-click="irHorarioDia()">
+                <span>{{dia.get('date')}}</span>
+                <span>{{dia.numeroCitas}}</span>
+            </th>
+        </tr>
+    </table>
+</div>
