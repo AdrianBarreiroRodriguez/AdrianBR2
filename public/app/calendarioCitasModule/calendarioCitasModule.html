@@ -12,9 +12,9 @@
             <th>Sabado</th>
             <th>Domingo</th>
         </tr>
-        <tr ng-repeat="semana in semanas">
-            <th ng-repeat= "dia in dias" ng-click="irHorarioDia()">
-                <span>{{dia.get('date')}}</span>
+        <tr ng-repeat="semana in semanasMes">
+            <th ng-repeat= "dia in semana" ng-click="irHorarioDia()">
+                <span>{{dia.fecha.get('date')}}</span>
                 <span>{{dia.numeroCitas}}</span>
             </th>
         </tr>

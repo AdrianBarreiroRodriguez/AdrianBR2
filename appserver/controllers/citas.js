@@ -11,7 +11,7 @@ module.exports.calendarioDeCitas= function(request, response){
     .exec(function (err, citas) {
         console.log(citas);
         var citasFecha = citas.reduce(function(citasFecha, cita){
-            var fecha = moment(cita.fechaInicio).format('YYYY/MM/DD');
+            var fecha = moment(cita.fechaInicio).format('YYYY-MM-DD');
             var hora = moment(cita.fechaInicio).format('hh:mm');
             if(citasFecha[fecha] == undefined) {
             	citasFecha[fecha] = {};
