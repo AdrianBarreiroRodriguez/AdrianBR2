@@ -1,7 +1,7 @@
 <div ng-controller="CalendarioCitasController">
-    <input type="button" value="<<" ng-click="">
-    <h1>{{mes}}</h1>
-    <input type="button" value=">>" ng-click="">
+    <input type="button" value="<<" ng-click="decrementarMes()">
+    <h1>{{nombreMes}}</h1>
+    <input type="button" value=">>" ng-click="incrementarMes()">
     <table>
         <tr>
             <th>Lunes</th>

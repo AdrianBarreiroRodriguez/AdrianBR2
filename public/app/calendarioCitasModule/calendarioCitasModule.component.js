@@ -8,15 +8,42 @@ angular.module('calendarioCitasModule')
         }
     }).controller('CalendarioCitasController', function($scope, $http){
         const MESES = ['ENERO', "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE","NOVIEMBRE", "DICIEMBRE"];
-        var fechaPrimerDiaMes = moment().set('date', 1);
-        var fechaPrimerDiaMesSiguiente = moment().set('date', 1).add(1,'M');
-        var numeroMes = moment().get('month');
-        $scope.mes =  MESES[numeroMes];
-        var year = moment().get('year');
-        $http.get('/api/citas/' + fechaPrimerDiaMes.format('YYYY-MM-DD') + "/" + fechaPrimerDiaMesSiguiente.format('YYYY-MM-DD')).then( function(response){
-            $scope.citas = response.data;
-            $scope.semanasMes = crearSemanasMes(fechaPrimerDiaMes);
-        });
+
+        $scope.crearCalendario = function(){
+            var fechaPrimerDiaMes = moment($scope.year + "-" + $scope.numeroMes + "-01", 'YYYY-MM-DD');
+            var fechaPrimerDiaMesSiguiente = moment($scope.year + "-" + $scope.numeroMes + "-01", 'YYYY-MM-DD').add(1,'M');
+            var indiceMes= $scope.numeroMes - 1;
+            $scope.nombreMes =  MESES[indiceMes];
+                
+            $http.get('/api/citas/' + fechaPrimerDiaMes.format('YYYY-MM-DD') + "/" + fechaPrimerDiaMesSiguiente.format('YYYY-MM-DD')).then( function(response){
+                $scope.citas = response.data;
+                $scope.semanasMes = crearSemanasMes(fechaPrimerDiaMes);
+            });
+        }
+
+        $scope.numeroMes = moment().format('MM');
+        $scope.year = moment().get('year');
+
+        $scope.crearCalendario();
+
+        $scope.incrementarMes = function(){
+            if($scope.numeroMes == "12"){
+                $scope.year++;
+            }
+            $scope.numeroMes = moment($scope.year+'-'+$scope.numeroMes,'YYYY-MM').add(1,'month').format('MM');
+            $scope.crearCalendario();
+        }
+
+        $scope.decrementarMes = function(){
+            if($scope.numeroMes == 1){
+                $scope.year--;
+            }
+            $scope.numeroMes = moment($scope.year+'-'+$scope.numeroMes,'YYYY-MM').subtract(1,'month').format('MM');
+            $scope.crearCalendario();
+        }
+        
+        
+        
 
         function crearSemanasMes(fechaPrimerDiaMes){
             var numeroSemanas = numeroSemanasMes(fechaPrimerDiaMes);
@@ -50,7 +77,13 @@ angular.module('calendarioCitasModule')
         function numeroSemanasMes(fechaPrimerDiaMes){
             var fechaBucle = fechaInicialCalendario(fechaPrimerDiaMes);
             var copiaFecha = moment(fechaPrimerDiaMes.format('YYYY-MM-DD'));
-            var numeroDias = copiaFecha.add(1,'M').dayOfYear() - fechaBucle.dayOfYear();
+            var numeroDias = 0;
+            if(fechaPrimerDiaMes.get('month') == 11){
+                numeroDias = copiaFecha.set('date', 31).dayOfYear() - fechaBucle.dayOfYear();
+                numeroDias++;
+            }else{
+                numeroDias = copiaFecha.add(1,'M').dayOfYear() - fechaBucle.dayOfYear();
+            }
             var numeroSemanasMes = Math.trunc(numeroDias/7) + 1;
             return numeroSemanasMes;
         }
