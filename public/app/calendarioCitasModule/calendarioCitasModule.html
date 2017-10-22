@@ -14,8 +14,10 @@
         </tr>
         <tr ng-repeat="semana in semanasMes">
             <th ng-repeat= "dia in semana" ng-click="irHorarioDia()">
-                <span>{{dia.fecha.get('date')}}</span>
-                <span>{{dia.numeroCitas}}</span>
+                <div class="{{dia.esMesActual}}">
+                    <span>{{dia.fecha.get('date')}}</span>
+                    <span>{{dia.numeroCitas}}</span>
+                </div>
             </th>
         </tr>
     </table>

@@ -25,15 +25,20 @@ angular.module('calendarioCitasModule')
             for(var i=0; i<numeroSemanas; i++){
                 semanas[i] = new Array(7);
                 for(var j=0; j<semanas[i].length; j++){
-                    var cadenaFecha = fechaBucle.format("YYYY-MM-DD");
-                    var copiaFecha = moment(fechaBucle.format("YYYY-MM-DD"));
                     semanas[i][j] = {};
+                    var copiaFecha = moment(fechaBucle.format("YYYY-MM-DD"));
                     semanas[i][j].fecha= copiaFecha;
+                    var cadenaFecha = fechaBucle.format("YYYY-MM-DD");
                     if( $scope.citas.hasOwnProperty(cadenaFecha) ) {
                         var numeroDeCitas = Object.keys($scope.citas[cadenaFecha]).length;
                         semanas[i][j].numeroCitas =  numeroDeCitas;
                     }else{
                         semanas[i][j].numeroCitas = "";
+                    }
+                    if(fechaBucle.get('month') == fechaPrimerDiaMes.get('month')){
+                        semanas[i][j].esMesActual = "yes_month";
+                    }else{
+                        semanas[i][j].esMesActual = "no_month";
                     }
                     fechaBucle.add(1,'d');
                 }
