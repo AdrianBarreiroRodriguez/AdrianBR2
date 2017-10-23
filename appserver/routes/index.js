@@ -6,7 +6,7 @@ var ctrlMascota = require('../controllers/mascota');
 var ctrlCitas = require('../controllers/citas');
 
 ////////////////////////////////////////////////////////
-////////////////   RUTAS CLIENTE  /////////////////////
+///////////////    RUTAS CLIENTE   ////////////////////
 //////////////////////////////////////////////////////
 
 router.get('/clientes', ctrlClientes.recuperarClientes);
@@ -15,7 +15,7 @@ router.post('/clientes', ctrlClientes.guardarCliente);
 router.put('/clientes/:id', ctrlClientes.actualizarCliente);
 
 ////////////////////////////////////////////////////////
-////////////////   RUTAS MASCOTA  /////////////////////
+///////////////    RUTAS MASCOTA   ////////////////////
 //////////////////////////////////////////////////////
 
 router.get('/mascotas', ctrlMascota.recuperarMascotas);
@@ -26,18 +26,12 @@ router.put('/mascotas/:id', ctrlMascota.actualizarMascota);
 router.delete('/mascotas/:id', ctrlMascota.eliminarMascota);
 
 /////////////////////////////////////////////////////
-////////////////   RUTAS CITA  /////////////////////
+///////////////    RUTAS CITA    ///////////////////
 ///////////////////////////////////////////////////
 
-router.get('/citas/:fromDate/:toDate', ctrlCitas.calendarioDeCitas);/*function(request, response){
-    var fechaInicio = request.params.fromDate;
-    var fechaFin = request.params.toDate;
-    ctrlCitas.calendarioDeCitas(fechaInicio, fechaFin, response);
-});*/
-
+router.get('/citas/:fromDate/:toDate', ctrlCitas.calendarioDeCitas);
+router.get('/citas/:date([0-9]{4}-[0-3][0-9]-[0-3][0-9])', ctrlCitas.recuperarCitasFecha);
 router.get('/citas/:id', ctrlCitas.recuperarCita);
-
 router.post('/citas/', ctrlCitas.guardarCita);
-
 router.put('/citas/:id', ctrlCitas.actualizarCita);
 module.exports = router;

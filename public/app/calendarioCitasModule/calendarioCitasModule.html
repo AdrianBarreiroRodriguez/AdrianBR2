@@ -1,7 +1,10 @@
 <div ng-controller="CalendarioCitasController">
-    <input type="button" value="<<" ng-click="decrementarMes()">
-    <h1>{{nombreMes}}</h1><h2>{{ year}}</h2>
-    <input type="button" value=">>" ng-click="incrementarMes()">
+    <div class="row">
+        <input type="button" value="<<" class="colum-md-2" ng-click="decrementarMes()">
+        <h1 class="colum-md-2">{{nombreMes}}</h1><h2 class="colum-md-2">{{ year}}</h2>
+        <input type="button" value=">>" class="colum-md-2" ng-click="incrementarMes()">
+        <div class="colum-md-4"></div>
+    </div>
     <table>
         <tr>
             <th>Lunes</th>
@@ -13,8 +16,8 @@
             <th>Domingo</th>
         </tr>
         <tr ng-repeat="semana in semanasMes">
-            <th ng-repeat= "dia in semana" ng-click="irHorarioDia()">
-                <div class="{{dia.esMesActual}}">
+            <th ng-repeat= "dia in semana" >
+                <div class="{{dia.esMesActual}}" ng-click="irHorarioDia(dia.fecha.format())">
                     <span>{{dia.fecha.get('date')}}</span>
                     <span>{{dia.numeroCitas}}</span>
                 </div>

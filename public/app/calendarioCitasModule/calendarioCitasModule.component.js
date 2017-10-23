@@ -6,7 +6,7 @@ angular.module('calendarioCitasModule')
         controller: function($scope, $http) {
             console.log("Inicializando calendario-citas-module");
         }
-    }).controller('CalendarioCitasController', function($scope, $http){
+    }).controller('CalendarioCitasController', function($scope, $http, $path){
         const MESES = ['ENERO', "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE","NOVIEMBRE", "DICIEMBRE"];
 
         $scope.crearCalendario = function(){
@@ -41,8 +41,6 @@ angular.module('calendarioCitasModule')
             $scope.numeroMes = moment($scope.year+'-'+$scope.numeroMes,'YYYY-MM').subtract(1,'month').format('MM');
             $scope.crearCalendario();
         }
-        
-        
         
 
         function crearSemanasMes(fechaPrimerDiaMes){
@@ -101,8 +99,8 @@ angular.module('calendarioCitasModule')
         }
         
 
-        $scope.irHorarioDia = function (dia){
-            
+        $scope.irHorarioDia = function (fecha){
+            $path.location("/horario/" + fecha);
         };
     });
 

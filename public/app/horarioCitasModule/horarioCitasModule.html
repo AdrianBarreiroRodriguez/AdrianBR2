@@ -1,0 +1,11 @@
+<div ng-controller="HorarioCitasController">
+    <ul>
+        <li ng-repeat="hora in horario">
+            <div>
+                <span>{{citas[hora].idMascota.nombre}}</span>
+                <span>{{citas[hora].idMascota.raza}}</span>
+                <span>{{citas[hora].estado}}</span>
+            </div>
+        </li>
+    </ul>
+</div>

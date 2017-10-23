@@ -79,6 +79,23 @@ module.exports.actualizarCita = function(request, response){
 }
 
 
+module.exports.recuperarCitasFecha = function (request, response){
+    var fecha = request.params.date;
+    Cita.find({'fechaInicio':fecha})
+    .populate('idMascota')
+    .exec(function (err, citas) {
+        console.log(citas);
+        var citasFecha = citas.reduce(function(citasFecha, cita){
+            var hora = moment(cita.fechaInicio).format('hh:mm');
+            if(citasFecha[hora] == undefined) {
+            	citasFecha[hora] = cita;
+            }
+            return citasFecha;
+        },{});
+        response.json(citasFecha);
+    });
+}
+
 
 ////////////////////////////////////////////////////////////////////
 ////////////   IMPLEMENTACION ESTRATEGIA CREAR STRING   ///////////

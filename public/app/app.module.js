@@ -10,5 +10,6 @@ angular.module('petStore',[
     'actualizarClienteModule',
     'insertarMascotaModule',
     'actualizarMascotaModule',
-    'calendarioCitasModule'
+    'calendarioCitasModule',
+    'calendarioCitasService'
 ]);
