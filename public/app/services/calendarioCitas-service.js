@@ -10,7 +10,7 @@ angular.module('calendarioCitasService', []).factory('calendarioCitasService', f
         var d = $q.defer();
     
         function coincideCalendarioActualConPeriodo(fechaInicial, fechaFinal){
-            var arrayDiasCalendario = Object.keys(servicio._calendarioCitasIntervalo);
+            var arrayDiasCalendario = Object.keys(servicio._calendarioCitasPeriodo);
             var longitudArray = arrayDiasCalendario.length;
             var fechaInicialCalendarioServicio = arrayDiasCalendario[0];
             var fechaFinalCalendarioServicio = arrayDiasCalendario[longitudArray]; 
@@ -27,12 +27,9 @@ angular.module('calendarioCitasService', []).factory('calendarioCitasService', f
 
 
         $http.get("/api/citas/" + fechaInicial + "/"+ fechaFinal)
-        .success(function(response) {
+        .then(function(response) {
             servicio._calendarioCitasPeriodo = response.data;
             d.resolve(servicio._calendarioCitasPeriodo);
-        })
-        .error(function(response){
-            d.reject({status: response.status, message: 'TODO'});
         });
         return d.promise;
     }
@@ -45,14 +42,13 @@ angular.module('calendarioCitasService', []).factory('calendarioCitasService', f
         }
 
         $http.get("/api/citas/" + fecha)
-        .success(function(response) {
+        .then(function(response){
             servicio._horarioCitasFecha = response.data;
             d.resolve(servicio._horarioCitasFecha);
-        })
-        .error(function(response){
-            d.reject({status: response.status, message: 'TODO'});
         });
         return d.promise;
     } 
+
+    return servicio;
 });
 

@@ -17,7 +17,6 @@ angular.module('listaClientesModule')
             $location.path("/clientes/" + id);
         }
 
-
         $scope.ingresarCliente = function(){
             $location.path("/insertar/cliente/");
         }

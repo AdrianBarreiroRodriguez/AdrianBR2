@@ -13,8 +13,8 @@ angular.module('horarioCitasModule')
         $scope.citas = calendarioCitasService.getCalendarioCitasFecha($scope.fecha);
 
         function crearHorario(horaInicio, horaFin){
-                
-        }
 
+        }
+        
         $scope.horario = crearHorario(horaInicio, horaFin);
     });

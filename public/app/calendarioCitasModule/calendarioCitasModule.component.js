@@ -6,7 +6,7 @@ angular.module('calendarioCitasModule')
         controller: function($scope, $http) {
             console.log("Inicializando calendario-citas-module");
         }
-    }).controller('CalendarioCitasController', function($scope, $http, $path){
+    }).controller('CalendarioCitasController', ['$scope', '$http', '$location', 'calendarioCitasService', function($scope, $http, $location, calendarioCitasService){
         const MESES = ['ENERO', "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE","NOVIEMBRE", "DICIEMBRE"];
 
         $scope.crearCalendario = function(){
@@ -14,11 +14,17 @@ angular.module('calendarioCitasModule')
             var fechaPrimerDiaMesSiguiente = moment($scope.year + "-" + $scope.numeroMes + "-01", 'YYYY-MM-DD').add(1,'M');
             var indiceMes= $scope.numeroMes - 1;
             $scope.nombreMes =  MESES[indiceMes];
-                
-            $http.get('/api/citas/' + fechaPrimerDiaMes.format('YYYY-MM-DD') + "/" + fechaPrimerDiaMesSiguiente.format('YYYY-MM-DD')).then( function(response){
+            var cadenaFechaPrimerDiaMes = fechaPrimerDiaMes.format('YYYY-MM-DD');
+            var cadenaFechaDiaMesSiguiente = fechaPrimerDiaMesSiguiente.format('YYYY-MM-DD');
+            calendarioCitasService.getCalendarioCitasPeriodo(cadenaFechaPrimerDiaMes, cadenaFechaDiaMesSiguiente).then(function(response){
+                $scope.citas = response;
+                $scope.semanasMes = crearSemanasMes(fechaPrimerDiaMes);     
+            });    
+            
+            /*$http.get('/api/citas/' + fechaPrimerDiaMes.format('YYYY-MM-DD') + "/" + fechaPrimerDiaMesSiguiente.format('YYYY-MM-DD')).then( function(response){
                 $scope.citas = response.data;
                 $scope.semanasMes = crearSemanasMes(fechaPrimerDiaMes);
-            });
+            });*/
         }
 
         $scope.numeroMes = moment().format('MM');
@@ -100,8 +106,8 @@ angular.module('calendarioCitasModule')
         
 
         $scope.irHorarioDia = function (fecha){
-            $path.location("/horario/" + fecha);
+            $location.path("/horario/" + fecha);
         };
-    });
+    }]);
 
     
