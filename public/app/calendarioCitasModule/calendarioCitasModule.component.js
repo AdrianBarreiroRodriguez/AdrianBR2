@@ -20,11 +20,6 @@ angular.module('calendarioCitasModule')
                 $scope.citas = response;
                 $scope.semanasMes = crearSemanasMes(fechaPrimerDiaMes);     
             });    
-            
-            /*$http.get('/api/citas/' + fechaPrimerDiaMes.format('YYYY-MM-DD') + "/" + fechaPrimerDiaMesSiguiente.format('YYYY-MM-DD')).then( function(response){
-                $scope.citas = response.data;
-                $scope.semanasMes = crearSemanasMes(fechaPrimerDiaMes);
-            });*/
         }
 
         $scope.numeroMes = moment().format('MM');
@@ -104,7 +99,6 @@ angular.module('calendarioCitasModule')
             return fechaInicialCalendario;
         }
         
-
         $scope.irHorarioDia = function (fecha){
             $location.path("/horario/" + fecha);
         };

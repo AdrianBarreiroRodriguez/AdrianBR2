@@ -17,7 +17,7 @@
         </tr>
         <tr ng-repeat="semana in semanasMes">
             <th ng-repeat= "dia in semana" >
-                <div class="{{dia.esMesActual}}" ng-click="irHorarioDia(dia.fecha.format())">
+                <div class="{{dia.esMesActual}}" ng-click="irHorarioDia(dia.fecha.format('YYYY-MM-DD'))">
                     <span>{{dia.fecha.get('date')}}</span>
                     <span>{{dia.numeroCitas}}</span>
                 </div>

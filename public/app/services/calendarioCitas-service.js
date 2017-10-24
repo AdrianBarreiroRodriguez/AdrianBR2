@@ -36,9 +36,17 @@ angular.module('calendarioCitasService', []).factory('calendarioCitasService', f
 
     //El para metro fecha es un String con el formato "YYYY-MM-DD"
     servicio.getCalendarioCitasFecha = function (fecha){
+        var d = $q.defer();
         if(estaEnCalendarioCitasActual(fecha)){
             d.resolve(servicio._calendarioCitasPeriodo[fecha]);
             return d.promise;    
+        }
+
+        function estaEnCalendarioCitasActual(fecha){
+            if(servicio._calendarioCitasPeriodo[fecha] == undefined){
+                return false;
+            }
+            return true;
         }
 
         $http.get("/api/citas/" + fecha)
@@ -48,7 +56,6 @@ angular.module('calendarioCitasService', []).factory('calendarioCitasService', f
         });
         return d.promise;
     } 
-
     return servicio;
 });
 

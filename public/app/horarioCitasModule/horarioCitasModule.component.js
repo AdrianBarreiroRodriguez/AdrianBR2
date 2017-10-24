@@ -7,14 +7,24 @@ angular.module('horarioCitasModule')
             console.log("Inicializando actualizar-mascota-module");
         }
     }).controller('HorarioCitasController', function($scope, $http, $routeParams, calendarioCitasService){
-        const horaInicio = "8:00";
-        const horaFin = "18:00";
+        const horaInicio = moment("8:00", "hh:mm");
+        const horaFin = moment("18:00", "hh:mm");
         $scope.fecha = $routeParams['fecha'];
-        $scope.citas = calendarioCitasService.getCalendarioCitasFecha($scope.fecha);
+        $scope.citas = {};
+        calendarioCitasService.getCalendarioCitasFecha($scope.fecha).then(function(response){
+            $scope.citas = response;     
+        });    
 
         function crearHorario(horaInicio, horaFin){
-
+            var horaBucle = horaInicio;
+            var cadenaHoraBucle = horaBucle.format("HH:mm");
+            var cadenaHoraFin = horaFin.format("HH:mm");
+            while(cadenaHoraBucle!=cadenaHoraFin){
+                $scope.horario.push(cadenaHoraBucle);
+                horaBucle.add(0.5,'h');
+                cadenaHoraBucle = horaBucle.format("HH:mm");
+            }          
         }
-        
-        $scope.horario = crearHorario(horaInicio, horaFin);
+        $scope.horario = new Array();
+        crearHorario(horaInicio, horaFin);
     });

@@ -86,7 +86,7 @@ module.exports.recuperarCitasFecha = function (request, response){
     .exec(function (err, citas) {
         console.log(citas);
         var citasFecha = citas.reduce(function(citasFecha, cita){
-            var hora = moment(cita.fechaInicio).format('hh:mm');
+            var hora = moment(cita.fechaInicio).format('HH:mm');
             if(citasFecha[hora] == undefined) {
             	citasFecha[hora] = cita;
             }

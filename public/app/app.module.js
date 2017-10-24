@@ -12,4 +12,5 @@ angular.module('petStore',[
     'actualizarMascotaModule',
     'calendarioCitasModule',
     'calendarioCitasService',
+    'horarioCitasModule',
 ]);
