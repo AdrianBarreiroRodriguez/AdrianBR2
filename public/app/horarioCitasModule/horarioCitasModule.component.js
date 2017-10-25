@@ -28,8 +28,13 @@ angular.module('horarioCitasModule')
         $scope.horario = new Array();
         crearHorario(horaInicio, horaFin);
 
-        $scope.irCrearCita = function(){
-            $location.path("insertar/cita");
+        $scope.irCrearCita = function(hora){
+            var horaFecha = moment(hora, 'HH:mm');
+            var horaNumero= horaFecha.format('HH');
+            var minutos = horaFecha.format('mm')
+            var fecha = moment($scope.fecha, 'YYYY-MM-DD').set('HH', parseInt(horaNumero)).set('mm', parseInt(minutos));
+            var cadenaFecha = fecha.format();
+            $location.path("insertar/cita/" + cadenaFecha);
         }
 
         $scope.irDetalleCita = function(idCita){

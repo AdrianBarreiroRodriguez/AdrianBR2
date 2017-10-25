@@ -14,6 +14,6 @@ angular.module('insertarCitaModule')
         $scope.actualizarListaClientes = function(nombreFiltrado){
             var criterio={};
             criterio.nombre = nombreFiltrado;
-            clienteRESTService.get(criterio);
+            $scope.clientes = clienteRESTService.query(criterio);
         }
     });
