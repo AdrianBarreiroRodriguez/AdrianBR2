@@ -6,14 +6,14 @@ angular.module('insertarCitaModule')
         controller: function($scope, $http) {
             console.log("Inicializando insertar-cita-module");
         }
-    }).controller('InsertarCitaController', function($scope, $http, $routeParams){
+    }).controller('InsertarCitaController', function($scope, $http, $routeParams, clienteRESTService){
     
         $scope.fechaCita = $routeParams['fechaCita'];
-        $scope.mascotas = {};
+        $scope.clientes = {};
 
-        $scope.actualizarListaMascotas = function(nombreFiltrado){
-
+        $scope.actualizarListaClientes = function(nombreFiltrado){
+            var criterio={};
+            criterio.nombre = nombreFiltrado;
+            clienteRESTService.get(criterio);
         }
-        
-
     });
