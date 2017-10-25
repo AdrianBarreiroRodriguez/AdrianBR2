@@ -1,11 +1,13 @@
 <div ng-controller="HorarioCitasController">
-    <ul>
-        <li ng-repeat="hora in horario">
+    <ul id="lista_horario">
+        <li ng-repeat="hora in horario" ng-click=detalleCita()>
             <div>
                 <span>{{hora}}</span>
                 <span>{{citas[hora].idMascota.nombre}}</span>
-                <span>{{citas[hora].idMascota.raza}}</span>
+                <span>{{citas[hora].idMascota.especie}}</span>
                 <span>{{citas[hora].estado}}</span>
+                <input type="button" value="detalle" ng-if="citas[hora]" ng-click="detalleCita(citas[hora]._id)">
+                <input type="button" value="insertar" ng-if="!citas[hora]" ng-click="irCrearCita()">
             </div>
         </li>
     </ul>

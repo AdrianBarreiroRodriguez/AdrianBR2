@@ -5,11 +5,30 @@ var ctrlClientes = require('../controllers/clientes');
 var ctrlMascota = require('../controllers/mascota');
 var ctrlCitas = require('../controllers/citas');
 
+const successCallback = function(res) { 
+    return function(result) {
+         res.json(result) 
+    };
+}
+const failCallback = function(res){
+     return function(err) {
+	    console.error(err);
+	    res.sendStatus(500);
+    };
+};
+
 ////////////////////////////////////////////////////////
 ///////////////    RUTAS CLIENTE   ////////////////////
 //////////////////////////////////////////////////////
 
-router.get('/clientes', ctrlClientes.recuperarClientes);
+router.get('/clientes', function(request, response){
+    var search = {};
+    var parametros = request.query;
+    if(parametros.nombre != undefined){
+        search.nombre = parametros.nombre;
+    }
+    ctrlClientes.recuperarClientes(search).then(successCallback(response),failCallback(response));
+});
 router.get('/clientes/:id', ctrlClientes.recuperarClienteById);
 router.post('/clientes', ctrlClientes.guardarCliente);
 router.put('/clientes/:id', ctrlClientes.actualizarCliente);

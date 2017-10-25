@@ -8,7 +8,6 @@ var clienteSchema = new mongoose.Schema({
     telefono:String,
     notas:String,
  });
-
-
+ 
 mongoose.model('Cliente', clienteSchema);
 

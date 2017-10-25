@@ -10,3 +10,13 @@ a {
 .no_month{
   color: rgb(139, 133, 133);
 }
+
+#lista_horario li{
+  border:black solid 1px;
+  padding:2px 2px 2px 2px;
+  width: 30%;
+}
+
+.hora{
+  border-right: black solid 1px;
+}

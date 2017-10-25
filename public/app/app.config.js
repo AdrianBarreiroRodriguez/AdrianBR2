@@ -37,6 +37,9 @@ angular.module('petStore')
             .when("/horario/:fecha",{
                 template: "<horario-citas-module></horario-citas-module>"
             })
+            .when("/insertar/cita/:fechaCita",{
+                template: "<insertar-cita-module></insertar-cita-module>"
+            })
             .otherwise({
                 template: "Other"
             });

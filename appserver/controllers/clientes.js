@@ -1,18 +1,20 @@
 
 var mongoose = require('mongoose');
 var Cliente = mongoose.model('Cliente');
+var Q = require("q");
 
 
-module.exports.recuperarClientes = function (request, response) {
-    Cliente.find({}, function (err, clientes) {
+
+module.exports.recuperarClientes = function (search) {
+    var d = Q.defer();
+    Cliente.find(search, function (err, clientes) {
         if (!err) {
-            console.log(clientes);
-            response.status(200);
-            response.json(clientes);
+            d.resolve(clientes);
         } else {
-            response.send(500, err.message);
+            d.reject(err);
         }
     });
+    return d.promise;
 };
 
 module.exports.recuperarClienteById = function (request, response) {

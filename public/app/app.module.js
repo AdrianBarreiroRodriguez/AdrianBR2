@@ -13,4 +13,5 @@ angular.module('petStore',[
     'calendarioCitasModule',
     'calendarioCitasService',
     'horarioCitasModule',
+    'insertarCitaModule',
 ]);

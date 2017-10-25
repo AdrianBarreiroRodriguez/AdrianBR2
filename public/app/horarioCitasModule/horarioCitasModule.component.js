@@ -6,7 +6,7 @@ angular.module('horarioCitasModule')
         controller: function($scope, $http) {
             console.log("Inicializando actualizar-mascota-module");
         }
-    }).controller('HorarioCitasController', function($scope, $http, $routeParams, calendarioCitasService){
+    }).controller('HorarioCitasController', function($scope, $http, $routeParams, $location, calendarioCitasService){
         const horaInicio = moment("8:00", "hh:mm");
         const horaFin = moment("18:00", "hh:mm");
         $scope.fecha = $routeParams['fecha'];
@@ -27,4 +27,12 @@ angular.module('horarioCitasModule')
         }
         $scope.horario = new Array();
         crearHorario(horaInicio, horaFin);
+
+        $scope.irCrearCita = function(){
+            $location.path("insertar/cita");
+        }
+
+        $scope.irDetalleCita = function(idCita){
+            $location.path("cita/" + idCita);
+        }
     });
