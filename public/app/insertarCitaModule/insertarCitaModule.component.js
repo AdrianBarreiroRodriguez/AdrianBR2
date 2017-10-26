@@ -56,8 +56,15 @@ angular.module('insertarCitaModule')
         }
 
         $scope.insertarCita = function(mascota){
-            
-            $http.post('api/mascotas', cita).then(function(response){
+            var cita = {
+                fechaInicio: moment($scope.fechaCita).format(),
+                fechaFin: moment($scope.fechaCita).set('m', 30).format(),
+                idMascota: mascota._id,
+                idVeterinario: null,
+                estado: 0
+            };
+
+            $http.post('api/citas', cita).then(function(response){
                 console.log(response);
             });
         }

@@ -32,7 +32,7 @@ angular.module('horarioCitasModule')
             var horaFecha = moment(hora, 'HH:mm');
             var horaNumero= horaFecha.format('HH');
             var minutos = horaFecha.format('mm')
-            var fecha = moment($scope.fecha, 'YYYY-MM-DD').set('HH', parseInt(horaNumero)).set('mm', parseInt(minutos));
+            var fecha = moment($scope.fecha, 'YYYY-MM-DD').set('H', parseInt(horaNumero)).set('m', parseInt(minutos));
             var cadenaFecha = fecha.format();
             $location.path("insertar/cita/" + cadenaFecha);
         }
