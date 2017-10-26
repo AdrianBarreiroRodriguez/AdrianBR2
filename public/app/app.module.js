@@ -15,4 +15,5 @@ angular.module('petStore',[
     'horarioCitasModule',
     'insertarCitaModule',
     'clienteRESTService',
+    'detalleCitaDirectivesModule',
 ]);
