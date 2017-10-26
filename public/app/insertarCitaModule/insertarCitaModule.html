@@ -1,10 +1,18 @@
 <div ng-controller="InsertarCitaController">
     
-    <ul>
+    <ul id="lista-clientes-filtrado-nombre">
         <li ng-repeat="cliente in clientes">
             <label for="nombre">Nombre:</label><span>{{cliente.nombre}}</span>
             <label for="apellidos">Apellidos:</label><span>{{cliente.apellidos}}</span>
             <label for="dni">DNI:</label><span>{{cliente.dni}}</span>
+            <input type="button" value="mascotas" ng-click="mostrarMascotas(cliente)"> 
+            <ul ng-show="cliente.mostrar">
+                <li ng-repeat="mascota in cliente.mascotas">
+                    <label for="nombre">Nombre:</label><span>{{mascota.nombre}}</span>
+                    <label for="especie">Especie:</label><span>{{mascota.especie}}</span>
+                    <input type="button" value="crear cita" ng-click="insertarCita(mascota)">         
+                </li>
+            </ul>
         </li>
     </ul>
     

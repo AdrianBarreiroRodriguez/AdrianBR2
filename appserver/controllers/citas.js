@@ -12,7 +12,7 @@ module.exports.calendarioDeCitas= function(request, response){
         console.log(citas);
         var citasFecha = citas.reduce(function(citasFecha, cita){
             var fecha = moment(cita.fechaInicio).format('YYYY-MM-DD');
-            var hora = moment(cita.fechaInicio).format('hh:mm');
+            var hora = moment(cita.fechaInicio).format('HH:mm');
             if(citasFecha[fecha] == undefined) {
             	citasFecha[fecha] = {};
             }
