@@ -40,6 +40,9 @@ angular.module('petStore')
             .when("/insertar/cita/:fechaCita",{
                 template: "<insertar-cita-module></insertar-cita-module>"
             })
+            .when("/actualizar/cita/:id",{
+                template: "<actualizar-cita-module></actualizar-cita-module>"
+            })
             .otherwise({
                 template: "Other"
             });

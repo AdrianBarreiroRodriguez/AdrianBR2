@@ -37,7 +37,8 @@ angular.module('horarioCitasModule')
             $location.path("insertar/cita/" + cadenaFecha);
         }
 
-        $scope.irDetalleCita = function(idCita){
+        
+        $scope.irActualizarCita = function(idCita){
             $location.path("cita/" + idCita);
         }
     });
