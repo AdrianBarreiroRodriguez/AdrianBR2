@@ -59,7 +59,7 @@ module.exports.actualizarCliente = function (request, response) {
                 cliente.telefono = clienteBody.telefono;
                 cliente.notas = clienteBody.notas;
                 cliente.save(function (err) {
-                    if (err) {
+                    if(err) {
                         response.status(400);
                         response.json(err);
                     } else {
