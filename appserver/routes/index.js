@@ -29,6 +29,14 @@ router.get('/clientes', function(request, response){
     }
     ctrlClientes.recuperarClientes(search).then(successCallback(response),failCallback(response));
 });
+router.get("/clientes/mascotas" , function(request, response){
+    var search = {};
+    var parametros = request.query;
+    if(parametros.nombre != undefined){
+        search.nombre = parametros.nombre;
+    }
+    ctrlClientes.recuperarClientesConMascotas(search).then(successCallback(response),failCallback(response));
+});
 router.get('/clientes/:id', ctrlClientes.recuperarClienteById);
 router.post('/clientes', ctrlClientes.guardarCliente);
 router.put('/clientes/:id', ctrlClientes.actualizarCliente);

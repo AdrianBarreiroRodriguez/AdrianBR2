@@ -20,11 +20,11 @@ describe('Servicios REST cliente', function() {
         });
 
         it("La propiedad dni del primer elemento debería ser 3", function(done) {
+            setTimeout(done, 300);
             var filtro = {nombre:'Mauricio'};
             ctrlClientes.recuperarClientes(filtro).then( 
                 function(result) {
-                    assert.equal('3',result[0].dni);
-                    assert.equal(1, result.length);
+                    assert.equal('56',result[0].dni);
                     done();
                 }
                 ,
@@ -35,11 +35,12 @@ describe('Servicios REST cliente', function() {
             
         });
 
-        it("La longitud del array de clientes debería ser 1", function(done) {
-            var filtro = {nombre:'Mauricio'};
+        it("La longitud del array de clientes debería ser 6", function(done) {
+            setTimeout(done, 300);
+            var filtro = {};
             ctrlClientes.recuperarClientes(filtro).then( 
                 function(result) {
-                    assert.equal(1, result.length);
+                    assert.equal(234234, result.length);
                     done();
                 }
                 ,

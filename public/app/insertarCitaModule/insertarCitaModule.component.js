@@ -34,8 +34,8 @@ angular.module('insertarCitaModule')
         function agregarMascotasAClientes(listaMascotasPorCliente){
             for(var i=0; i < listaMascotasPorCliente.length; i++){
                 var idPropietario;
-                if(listaMascotasPorCliente[0].length > 0){
-                    idPropietario = listaMascotasPorCliente[0][0].idPropietario;
+                if(listaMascotasPorCliente[i].length > 0){
+                    idPropietario = listaMascotasPorCliente[i][0].idPropietario;
                 }
                 for(var j=0; j<$scope.clientes.length; j++){
                     if(idPropietario == $scope.clientes[j]._id){
