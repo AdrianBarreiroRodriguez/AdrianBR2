@@ -36,6 +36,7 @@ module.exports.recuperarClientesConMascotas = function (search) {
 
 
 function agregarMascotasAClientes(d, clientes){
+    var clientesSinMascota = 0;
     for(var i=0; i<clientes.length; i++){
         var criterio = {};
         criterio.idPropietario = clientes[i]._id;
@@ -47,10 +48,9 @@ function agregarMascotasAClientes(d, clientes){
                     clientes[id]._doc['mascotas'] = mascotas;
 
                 }else{
-                    var id = buscarCliente(clientes, idCliente);
-                    clientes[id]._doc['mascotas']= "vacio";
+                    clientesSinMascota++;
                 }
-                if(todosTienenMascotas(clientes)){
+                if(todosTienenMascotas(clientes, clientesSinMascota)){
                     d.resolve(clientes);
                 }
             }
@@ -66,13 +66,18 @@ function buscarCliente(clientes, idCliente){
     }
 }
 
-function todosTienenMascotas(clientes){
+function todosTienenMascotas(clientes, clientesSinMascotas){
+    var clientesConMascotas = 0;
     for(var i=0; i<clientes.length; i++){
-        if(clientes[i]._doc['mascotas'] == undefined){
-            return false;
+        if(clientes[i]._doc['mascotas'] != undefined){
+            clientesConMascotas++;
         }
     }
-    return true;
+    if((clientesConMascotas + clientesSinMascotas) == clientes.length){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 module.exports.recuperarClienteById = function (request, response) {

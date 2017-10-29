@@ -11,42 +11,6 @@ angular.module('insertarCitaModule')
         $scope.fechaCita = $routeParams['fechaCita'];
         $scope.clientes = {};
 
-        function rellenarMascotasPorCliente(){
-            var listaMascotasPorCliente = new Array();
-            for(var i=0; i<$scope.clientes.length; i++){
-                var d = $q.defer();
-                var idCliente = $scope.clientes[i]._id;
-                $scope.clientes[i].mostrar = false;
-                $http.get('api/clientes/mascotas/' + idCliente).then(function(response){
-                    var mascotas = {};
-                    mascotas = response.data;
-                    d.resolve(mascotas);
-                });
-                d.promise.then(function(response){
-                    listaMascotasPorCliente.push(response);
-                    if($scope.clientes.length == listaMascotasPorCliente.length){
-                        agregarMascotasAClientes(listaMascotasPorCliente);
-                    }
-                });
-            }
-        }
-        
-        function agregarMascotasAClientes(listaMascotasPorCliente){
-            for(var i=0; i < listaMascotasPorCliente.length; i++){
-                var idPropietario;
-                if(listaMascotasPorCliente[i].length > 0){
-                    idPropietario = listaMascotasPorCliente[i][0].idPropietario;
-                }
-                for(var j=0; j<$scope.clientes.length; j++){
-                    if(idPropietario == $scope.clientes[j]._id){
-                        $scope.clientes[j].mascotas = {};
-                        $scope.clientes[j].mascotas = listaMascotasPorCliente[i];
-                    }
-                }
-            }        
-        }
-
-
         $scope.mostrarMascotas = function(cliente){
             if(cliente.mostrar == true){
                 cliente.mostrar = false;
@@ -70,11 +34,8 @@ angular.module('insertarCitaModule')
         }
 
         $scope.actualizarListaClientes = function(nombreFiltrado){
-            var criterio={};
-            criterio.nombre = nombreFiltrado;
-            //$scope.clientes = clienteRESTService.query(criterio);
-            $scope.clientes = clienteRESTService.query(criterio, function(){
-                rellenarMascotasPorCliente();
+            $http.get("api/clientes/mascotas/?nombre=" + nombreFiltrado).then(function(response){
+                $scope.clientes = response.data;
             });
         }
     });
