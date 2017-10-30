@@ -34,14 +34,17 @@ angular.module('petStore')
             .when("/calendario",{
                 template: "<calendario-citas-module></calendario-citas-module>"
             })
-            .when("/horario/:fecha",{
+            /*.when("/horario/:fecha",{
                 template: "<horario-citas-module></horario-citas-module>"
-            })
+            })*/
             .when("/insertar/cita/:fechaCita",{
                 template: "<insertar-cita-module></insertar-cita-module>"
             })
             .when("/actualizar/cita/:id",{
                 template: "<actualizar-cita-module></actualizar-cita-module>"
+            })
+            .when("/horario/:fecha",{
+                template: "<citas-padre-module></citas-padre-module>"
             })
             .otherwise({
                 template: "Other"

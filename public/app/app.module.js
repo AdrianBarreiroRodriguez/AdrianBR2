@@ -17,4 +17,5 @@ angular.module('petStore',[
     'clienteRESTService',
     'detalleCitaDirectivesModule',
     'actualizarCitaModule',
+    'citasPadreModule',
 ]);

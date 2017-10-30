@@ -2,7 +2,7 @@
 angular.module('actualizarClienteModule',[]);
 angular.module('actualizarClienteModule')
     .component('actualizarClienteModule', {
-        templateUrl:'/app/actualizarClienteModule/actualizarClienteModule.html',
+        templateUrl:'/app/citasPadreModule/actualizarClienteModule/actualizarClienteModule.html',
         controller: function($scope, $http) {
             console.log("Inicializando actualizar-clientes-module")
         }
