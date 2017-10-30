@@ -8,7 +8,11 @@ angular.module('actualizarCitaModule')
         }
     }).controller('ActualizarCitaController', function($scope, $http, $routeParams){
         var idCita = $routeParams['id'];
-        $http.get('api/citas' + idCita).then(function (response){
+        $http.get('api/citas/' + idCita).then(function (response){
             $scope.cita = response.data;
         });
+
+        $scope.guardarEstado = function(){
+            
+        };
     });
