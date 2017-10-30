@@ -1,4 +1,5 @@
 <div ng-controller="ActualizarCitaController">
+    <h2>Actualizar cita</h2>
     <select ng-model="cita.estado">
         <option value="-1">Cancelada</option>
         <option value="0">Pendiente</option>
@@ -6,7 +7,7 @@
         <option value="2">Terminada</option>    
     </select>
     <br><br>
-    <label>ID Cita: </label><span>{{cita._id}}</span>
+    <label>Hora: </label><span> {{"  "+hora}}</span>
     <br><br>
     <label>ID Mascota: </label><span>{{cita.idMascota}}</span>
     <br><br>

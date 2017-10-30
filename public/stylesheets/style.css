@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -14,15 +14,46 @@ a {
 #lista_horario li{
   border:black solid 1px;
   padding:2px 2px 2px 2px;
-  width: 30%;
+  width: 70%;
+  font-size: 13px;
 }
 
 .hora{
   border-right: black solid 1px;
 }
+header ul li{
+  font-size: 18px;
+}
 
 #lista-clientes-filtrado-nombre li{
   border:black solid 1px;
   padding:2px 2px 2px 2px;
-  width: 35%;
+  width: 90%;
+}
+
+#navegacion_calendario{
+  width: 50%;
+}
+
+#navegacion_calendario h1{
+  text-align:center;
+}
+
+#tabla_calendario{
+  width: 50%;
+}
+
+#actualizar_cita_componente{
+  border:black solid 2px;
+  margin-left:10px;
+}
+
+#insertar_cita_componente{
+  border:black solid 2px;
+  margin-top: 10px;
+  margin-left:10px;
+}
+
+#horario_citas_componente{
+  border:black solid 2px;
 }

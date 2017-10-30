@@ -15,5 +15,8 @@ angular.module('citasPadreModule')
             $scope.$on("cita:citaGuardadaExito", (evento,datos)=>{
                 $scope.$broadcast("cita:refrescarHorarioCitas");
             });
+            $scope.$on("cita:citaActualizadaExito", (evento,datos)=>{
+                $scope.$broadcast("cita:refrescarHorarioCitas");
+            });
         }
     });

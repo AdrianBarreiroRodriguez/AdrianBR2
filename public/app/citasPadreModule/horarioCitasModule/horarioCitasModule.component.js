@@ -42,6 +42,17 @@ angular.module('horarioCitasModule')
                 }          
             }
 
+            $scope.estadosCita = {
+                "-1":"cancelada",
+                "0":"pendiente",
+                "1":"en curso",
+                "2":"terminada"
+            }
+
+            console.log("Estados cita: " + $scope.estadosCita[-1]);
+            console.log("Estados cita: " + $scope.estadosCita[0]);
+            console.log("Estados cita: " + $scope.estadosCita[1]);
+            console.log("Estados cita: " + $scope.estadosCita[2]);
 
             $scope.irCrearCita = function(hora){
                 var horaFecha = moment(hora, 'HH:mm');

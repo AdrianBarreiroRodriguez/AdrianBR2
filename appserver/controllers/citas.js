@@ -65,7 +65,7 @@ module.exports.actualizarCita = function(request, response){
                 cita.idMascota = actualizacionCita.idMascota;
                 cita.idVeterinario = actualizacionCita.idVeterinario;
                 cita.estado = actualizacionCita.estado;
-                mascota.save(function (err, cita) {
+                cita.save(function (err, cita) {
                     if (!err) {
                         response.status(200);
                         response.json('{"status":"success"}');

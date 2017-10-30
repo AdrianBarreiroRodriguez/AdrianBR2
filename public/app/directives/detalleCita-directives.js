@@ -16,7 +16,7 @@ angular.module('detalleCitaDirectivesModule', [])
                 template: '<span>{{hora}}</span>\
                            <span>{{citas[hora].idMascota.nombre}}</span>\
                            <span>{{citas[hora].idMascota.especie}}</span>\
-                           <span>{{citas[hora].estado}}</span>\
+                           <span>{{estadosCita[citas[hora].estado]}}</span>\
                            <input type="button" value="modificar" ng-if="citas[hora]" ng-click="irModificarCita(citas[hora]._id)">\
                            <input type="button" value="insertar" ng-if="!citas[hora]" ng-click="irCrearCita(hora)">'
             };

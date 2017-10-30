@@ -11,12 +11,15 @@ angular.module('actualizarCitaModule')
             var idCita = datos['id'];
             $http.get('api/citas/'+idCita).then(function (response){
                 $scope.cita = response.data;
+                $scope.hora = moment($scope.cita.fechaInicio).format("HH:mm");
             });
         });
         
         $scope.guardarEstado = function(){
             $http.put("api/citas/" + $scope.cita._id, $scope.cita).then(function (response){
-                console.log(response);        
+                if(response.status == 200){
+                    $scope.$emit("cita:citaActualizadaExito");
+                }      
             });
         };
     });
