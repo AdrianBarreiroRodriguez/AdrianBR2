@@ -1,5 +1,5 @@
 <div ng-controller="InsertarCitaController">
-    
+    <div ng-if="!(fechaCita==undefined)"><h2>Insertar cita para {{fechaCita.format('YYYY-MM-DD  HH-mm')}}</h2></div>
     <ul id="lista-clientes-filtrado-nombre">
         <li ng-repeat="cliente in clientes">
             <label for="nombre">Nombre:</label><span>{{cliente.nombre}}</span>

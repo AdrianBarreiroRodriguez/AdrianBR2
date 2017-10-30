@@ -2,14 +2,17 @@
 angular.module('insertarCitaModule',[]);
 angular.module('insertarCitaModule')
     .component('insertarCitaModule', {
-        templateUrl:'/app/insertarCitaModule/insertarCitaModule.html',
+        templateUrl:'/app/citasPadreModule/insertarCitaModule/insertarCitaModule.html',
         controller: function($scope, $http) {
             console.log("Inicializando insertar-cita-module");
         }
-    }).controller('InsertarCitaController', function($scope, $http, $routeParams, $q, clienteRESTService){
-    
-        $scope.fechaCita = $routeParams['fechaCita'];
-        $scope.clientes = {};
+    }).controller('InsertarCitaController', function($scope, $http, $q, clienteRESTService){
+        $scope.$on("cita:irCrearCita", function(evento, datos){
+            var cadenaFecha = datos['fecha'];
+            $scope.fechaCita = moment(cadenaFecha);
+            $scope.clientes = {};
+        });
+       
 
         $scope.mostrarMascotas = function(cliente){
             if(cliente.mostrar == true){
@@ -30,6 +33,9 @@ angular.module('insertarCitaModule')
 
             $http.post('api/citas', cita).then(function(response){
                 console.log(response);
+                if(response.status == 200){
+                    $scope.$emit("cita:citaGuardadaExito");
+                }
             });
         }
 

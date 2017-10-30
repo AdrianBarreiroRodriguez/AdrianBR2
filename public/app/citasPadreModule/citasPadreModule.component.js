@@ -9,5 +9,11 @@ angular.module('citasPadreModule')
             $scope.$on("cita:irModificarCitaClick", (evento, datos) => {
                 $scope.$broadcast("cita:irModificarCita", datos);
             });
+            $scope.$on("cita:irCrearCitaClick", (evento, datos) => {
+                $scope.$broadcast("cita:irCrearCita", datos);
+            });
+            $scope.$on("cita:citaGuardadaExito", (evento,datos)=>{
+                $scope.$broadcast("cita:refrescarHorarioCitas");
+            });
         }
     });

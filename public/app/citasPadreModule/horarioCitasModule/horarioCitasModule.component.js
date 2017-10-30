@@ -10,6 +10,13 @@ angular.module('horarioCitasModule')
             console.log("Inicializando actualizar-mascota-module");         
             this.$onInit= function (){
                 cargarCitas(this.fechaActual);
+                $scope.$on("cita:refrescarHorarioCitas", (evento, datos) => {
+                    calendarioCitasService.actualizarCalendarioCitas().then(function(){
+                        calendarioCitasService.getCalendarioCitasFecha($scope.fecha).then(function(response){
+                            $scope.citas = response;     
+                        });
+                    });
+                });
             }
             
             function cargarCitas(fecha){
@@ -42,8 +49,9 @@ angular.module('horarioCitasModule')
                 var minutos = horaFecha.format('mm')
                 var fecha = moment($scope.fecha, 'YYYY-MM-DD').set('H', parseInt(horaNumero)).set('m', parseInt(minutos));
                 var cadenaFecha = fecha.format();
-                $location.path("insertar/cita/" + cadenaFecha);
+                $scope.$emit("cita:irCrearCitaClick", {fecha:cadenaFecha});
             }
+
             $scope.irModificarCita = function(idCita){
                 console.log(idCita);
                 $scope.$emit("cita:irModificarCitaClick", {id:idCita});

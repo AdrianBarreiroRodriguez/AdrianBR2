@@ -4,11 +4,15 @@ angular.module('calendarioCitasService', []).factory('calendarioCitasService', f
     var servicio = {};
     servicio._calendarioCitasPeriodo={};
     servicio._horarioCitasFecha={};
+    servicio._fechaInicial = "";
+    servicio._fechaFinal = "";
 
     //Los parametros fechaInicial y fechaFinal son Strings con el formato "YYYY-MM-DD"
     servicio.getCalendarioCitasPeriodo = function(fechaInicial, fechaFinal){
         var d = $q.defer();
-    
+        servicio._fechaInicial = fechaInicial;
+        servicio._fechaFinal = fechaFinal;
+
         function coincideCalendarioActualConPeriodo(fechaInicial, fechaFinal){
             var arrayDiasCalendario = Object.keys(servicio._calendarioCitasPeriodo);
             var longitudArray = arrayDiasCalendario.length;
@@ -27,6 +31,18 @@ angular.module('calendarioCitasService', []).factory('calendarioCitasService', f
 
 
         $http.get("/api/citas/" + fechaInicial + "/"+ fechaFinal)
+        .then(function(response) {
+            servicio._calendarioCitasPeriodo = response.data;
+            d.resolve(servicio._calendarioCitasPeriodo);
+        });
+        return d.promise;
+    }
+
+    //actualizar citas de calendario entre fechas
+    servicio.actualizarCalendarioCitas = function(){
+        var d = $q.defer();
+
+        $http.get("/api/citas/" + servicio._fechaInicial + "/"+ servicio._fechaFinal)
         .then(function(response) {
             servicio._calendarioCitasPeriodo = response.data;
             d.resolve(servicio._calendarioCitasPeriodo);
