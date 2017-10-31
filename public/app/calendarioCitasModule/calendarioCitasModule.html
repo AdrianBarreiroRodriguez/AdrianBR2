@@ -1,8 +1,10 @@
 <div ng-controller="CalendarioCitasController">
     <div id="navegacion_calendario" class="row">
-        <input type="button" value="<<" class="col-md-1" ng-click="decrementarMes()">
+        <button type="button" class="col-md-1 btn btn-primary btn-md" ng-click="decrementarMes()"><<</button>
+        <!-- <input type="button" value="<<" class="col-md-1" ng-click="decrementarMes()"> -->
         <div class="col-md-10"><h1 >{{nombreMes}} {{ year}}</h1></div>
-        <input type="button" value=">>" class="col-md-1" ng-click="incrementarMes()">
+        <button type="button" class="col-md-1 btn btn-primary btn-md" ng-click="incrementarMes()">>></button>
+        <!-- <input type="button" value=">>" class="col-md-1" ng-click="incrementarMes()"> -->
     </div>
     <table id="tabla_calendario">
         <tr>

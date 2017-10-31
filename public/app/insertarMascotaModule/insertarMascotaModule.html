@@ -1,31 +1,17 @@
-<div ng-controller="InsertarMascotaController">
-        <div>
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" ng-model="mascota.nombre">
-        </div>
-        <div>
-            <label for="especie">Especie</label>
-            <input type="text" name="especie" ng-model="mascota.especie">
-        </div>
-        <div>
-            <label for="raza">Raza</label>
-            <input type="text" name="raza" ng-model="mascota.raza">
-        </div>
-        <div>
-            <label for="fechaNacimiento">Fecha Nacimiento</label>
-            <input type="text" name="fechaNacimiento" ng-model="mascota.fechaNacimiento">
-        </div>
-        <div>
-            <label for="numeroChip">Numero chip</label>
-            <input type="text" name="numeroChip"  ng-model="mascota.numeroChip">
-        </div>
-        <div>
-            <label for="urlImagen">URL imagen</label>
-            <input type="text" name="urlImagen" ng-model="mascota.urlImagen">
-        </div>
-        <div>
-            <label for="descripcion">Descripcion</label>
-            <input type="text" name="descripcion" ng-model="mascota.descripcion">
-        </div>
-        <input type="button" value="insertar" ng-click="insertarMascota()">
+<div id="formulario_insertar_mascota" ng-controller="InsertarMascotaController">
+    <entrada-datos data-etiqueta="Nombre" data-modelo="mascota.nombre" data-placeholder="nombre"></entrada-datos>
+    
+    <entrada-datos data-etiqueta="Especie" data-modelo="mascota.especie" data-placeholder="especie"></entrada-datos>    
+    
+    <entrada-datos data-etiqueta="Raza" data-modelo="mascota.raza" data-placeholder="raza"></entrada-datos>
+    
+    <entrada-datos data-etiqueta="Fecha Nacimiento" data-modelo="mascota.fechaNacimiento" data-placeholder="fecha nacimiento"></entrada-datos> 
+    
+    <entrada-datos data-etiqueta="Numero Chip" data-modelo="mascota.numeroChip" data-placeholder="numero chip"></entrada-datos>
+    
+    <entrada-datos data-etiqueta="URL Imagen" data-modelo="mascota.urlImagen" data-placeholder="URL imagen"></entrada-datos>    
+    
+    <entrada-datos data-etiqueta="Descripcion" data-modelo="mascota.descripcion" data-placeholder="descripcion"></entrada-datos>
+
+    <input type="button" value="fsdfs" ng-click="insertarMascota()">
 </div>

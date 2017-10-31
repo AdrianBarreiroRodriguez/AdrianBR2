@@ -18,4 +18,5 @@ angular.module('petStore',[
     'detalleCitaDirectivesModule',
     'actualizarCitaModule',
     'citasPadreModule',
+    'formularioDirectivesModule',
 ]);

@@ -1,5 +1,4 @@
 body {
-  padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -18,11 +17,27 @@ a {
   font-size: 13px;
 }
 
+li{
+  list-style:none
+}
+
 .hora{
   border-right: black solid 1px;
 }
-header ul li{
+
+header div{
+
+}
+
+header div a{
+  text-decoration:none;
+  color: darkgray; 
   font-size: 18px;
+  text-align:center;    
+}
+
+header div a:hover{
+  text-decoration:none;        
 }
 
 #lista-clientes-filtrado-nombre li{
@@ -56,4 +71,37 @@ header ul li{
 
 #horario_citas_componente{
   border:black solid 2px;
+  padding-bottom:2px;
+}
+
+#cabecera{
+  background-color: midnightblue;
+  height:50px;
+  margin-bottom:18px;
+}
+
+#wrapper{
+  padding-left:40px;
+  padding-right:20px;
+}
+
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+  font-size: 18px;
+  color: darkgray; 
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: darkgray; 
+}
+
+#menu{
+  background-color: midnightblue;
+  height:50px;
+}
+
+#formulario_insertar_mascota{
+  width:40%;
 }
