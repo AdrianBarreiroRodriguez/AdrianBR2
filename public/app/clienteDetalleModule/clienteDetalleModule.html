@@ -5,16 +5,16 @@
     <div><span>DNI</span><span> {{cliente.dni}}</span></div>
     <div><span>Telefono</span><span> {{cliente.telefonos}}</span></div>
     <div><span>Notas</span><span> {{cliente.notas}}</span></div>
-    <input type="button" value="actualizar" ng-click="irActualizarCliente()">
+    <button ng-click="irActualizarCliente()">actualizar</button>
     <ul>
         <li ng-repeat="mascota in listaMascotas">
             <div>
                 <span> {{mascota.nombre}}</span>
                 <span> {{mascota.especie}}</span>
                 <span> {{mascota.raza}}</span>
-                <input type="button" value="detalle" ng-click="irDetalleMascota(mascota._id)">
+                <button ng-click="irDetalleMascota(mascota._id)">detalle</button>
             </div>
         </li>
     </ul>
-    <input type="button" value="insertar" ng-click="irInsertarMascota()">
+    <button ng-click="irInsertarMascota()">insertar</button>
 </div>

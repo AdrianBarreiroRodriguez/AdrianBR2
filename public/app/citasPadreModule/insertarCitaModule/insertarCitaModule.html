@@ -6,16 +6,16 @@
             <label for="nombre">Nombre:</label><span>{{cliente.nombre}}</span>
             <label for="apellidos">Apellidos:</label><span>{{cliente.apellidos}}</span>
             <label for="dni">DNI:</label><span>{{cliente.dni}}</span>
-            <input type="button" value="mascotas" ng-click="mostrarMascotas(cliente)"> 
+            <button ng-click="mostrarMascotas(cliente)">mascotas</button>
             <ul ng-show="cliente.mostrar">
                 <li ng-repeat="mascota in cliente.mascotas">
                     <label for="nombre">Nombre:</label><span>{{mascota.nombre}}</span>
                     <label for="especie">Especie:</label><span>{{mascota.especie}}</span>
-                    <input type="button" value="crear cita" ng-click="insertarCita(mascota)">         
+                    <button ng-click="insertarCita(mascota)">crear cita</button>        
                 </li>
             </ul>
         </li>
     </ul>
     <input type="text" ng-model="nombreFiltrado">
-    <input type="button" value="filtrar" ng-click="actualizarListaClientes(nombreFiltrado)">
+    <button ng-click="actualizarListaClientes(nombreFiltrado)">filtrar</button>
 </div>

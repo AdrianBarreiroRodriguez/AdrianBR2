@@ -13,11 +13,11 @@ angular.module('detalleCitaDirectivesModule', [])
                 controller: controller,
                 controllerAs: 'cita',
                 link: linker,
-                template: '<span>{{hora}}</span>\
+                template: '<span class="hora_cita">{{hora}}</span>\
                            <span>{{citas[hora].idMascota.nombre}}</span>\
                            <span>{{citas[hora].idMascota.especie}}</span>\
                            <span>{{estadosCita[citas[hora].estado]}}</span>\
-                           <input type="button" value="modificar" ng-if="citas[hora]" ng-click="irModificarCita(citas[hora]._id)">\
-                           <input type="button" value="insertar" ng-if="!citas[hora]" ng-click="irCrearCita(hora)">'
+                           <button  class=".btn-success btn-xs" ng-if="citas[hora]" ng-click="irModificarCita(citas[hora]._id)">modificar</button>\
+                           <button  class=".btn-success btn-xs" ng-if="!citas[hora]" ng-click="irCrearCita(hora)">insertar</button>'
             };
 });

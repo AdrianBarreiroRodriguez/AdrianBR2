@@ -6,9 +6,9 @@
                 <span> {{cliente.nombre}} </span>
                 <span> {{cliente.apellidos}} </span>
                 <span> {{cliente.dni}} </span>
-                <input type="button" value="detalle" ng-click="irDetalleCliente(cliente._id)">
+                <button ng-click="irDetalleCliente(cliente._id)">detalle</button>
             </div>
         </li>
     </ul>
-    <input type="button" value="insertar" ng-click="ingresarCliente()">
+    <button ng-click="ingresarCliente()">insertar</button>
 </div>

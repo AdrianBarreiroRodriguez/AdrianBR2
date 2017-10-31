@@ -10,11 +10,22 @@ a {
   color: rgb(139, 133, 133);
 }
 
+button{
+  background-color: rgb(174, 186, 214);
+}
+
 #lista_horario li{
   border:midnightblue solid 1px;
   padding:2px 2px 2px 2px;
   width: 70%;
   font-size: 13px;
+}
+.hora_cita{
+  font-size: 15px;
+  font-weight: bold;
+}
+#lista_horario button{
+  background-color: rgb(174, 186, 214);
 }
 
 li{
