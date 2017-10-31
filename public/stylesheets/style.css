@@ -11,7 +11,7 @@ a {
 }
 
 #lista_horario li{
-  border:black solid 1px;
+  border:midnightblue solid 1px;
   padding:2px 2px 2px 2px;
   width: 70%;
   font-size: 13px;
@@ -25,29 +25,24 @@ li{
   border-right: black solid 1px;
 }
 
-header div{
-
-}
-
-header div a{
-  text-decoration:none;
-  color: darkgray; 
-  font-size: 18px;
-  text-align:center;    
-}
-
-header div a:hover{
-  text-decoration:none;        
-}
-
 #lista-clientes-filtrado-nombre li{
-  border:black solid 1px;
+  border:midnightblue solid 1px;
   padding:2px 2px 2px 2px;
   width: 90%;
 }
 
+#contenedor_tabla_calendario{
+  margin-top:25px;
+}
+
 #navegacion_calendario{
-  width: 50%;
+  margin-right:150px;
+  margin-left:100px;
+}
+
+#navegacion_calendario button{
+  margin-top:18px;
+  background-color: midnightblue;
 }
 
 #navegacion_calendario h1{
@@ -59,18 +54,21 @@ header div a:hover{
 }
 
 #actualizar_cita_componente{
-  border:black solid 2px;
+  border:midnightblue solid 3px;
   margin-left:10px;
+  padding: 10px 10px 10px 10px;
 }
 
 #insertar_cita_componente{
-  border:black solid 2px;
+  border:midnightblue solid 3px;
   margin-top: 10px;
   margin-left:10px;
+  padding: 10px 10px 10px 10px;
+  height:300px;
 }
 
 #horario_citas_componente{
-  border:black solid 2px;
+  border:midnightblue solid 3px;
   padding-bottom:2px;
 }
 
@@ -105,3 +103,35 @@ header div a:hover{
 #formulario_insertar_mascota{
   width:40%;
 }
+
+thead{
+  color: midnightblue;
+  font-size: 20px;
+}
+
+th{
+  border:midnightblue solid 2px;
+  height:60px;
+  width: 130px;
+  text-align: center;
+}
+
+th div{
+  height:100%;
+}
+th div .fecha{
+  height:20%;
+  text-align:left;
+  font-size:16px;
+  margin-left:5px;
+  margin-top:5px;
+  padding-top:0px;
+}
+th div div{
+  padding-top:10px;
+  height:80%;
+}
+th div div span{
+  color:rgb(35, 70, 136);
+}
+

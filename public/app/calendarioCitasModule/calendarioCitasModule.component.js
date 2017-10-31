@@ -22,6 +22,12 @@ angular.module('calendarioCitasModule')
             });    
         }
 
+        var socket = io.connect();
+        socket.on('appointments:evento1', function(data) {
+            console.log("Recibido el evento appointments:evento1", data);
+            // realizar operaciones relacionadas con este evento
+        });
+
         $scope.numeroMes = moment().format('MM');
         $scope.year = moment().get('year');
 

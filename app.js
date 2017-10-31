@@ -11,6 +11,9 @@ var routes = require('./appserver/routes/index');
 
 var app = express();
 
+
+app.io = require('socket.io')();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -30,6 +33,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/api', routes);
+
+/*Manejador de socket.io*/
+//require("./appserver/routes/socketio-manager.js")(app.io);
+
 
 //Front End
 app.all("*", (req, res) => {
