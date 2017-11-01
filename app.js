@@ -12,7 +12,7 @@ var routes = require('./appserver/routes/index');
 var app = express();
 
 
-app.io = require('socket.io')();
+//app.io = require('socket.io')();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

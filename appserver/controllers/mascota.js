@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Mascota = mongoose.model('Mascota');
-
+var validate = require("validate.js");
 
 module.exports.recuperarMascotas = function (request, response) {
     Mascota.find({}, function (err, mascotas) {
@@ -29,18 +29,71 @@ module.exports.recuperarMascota = function (request, response) {
 
 module.exports.guardarMascota = function (request, response) {
     var datosMascota = request.body;
-    const objetoMascota = new Mascota(datosMascota);
-    objetoMascota.save((err) => {
-        if (err) {
-            console.error(err);
-            response.status(400);
-            response.json(err);
-        } else {
-            console.log("agregarCliente", objetoMascota);
-            response.status(200);
-            response.json('{"status":"success"}');
+    if(validarMascota(datosMascota)){
+        const objetoMascota = new Mascota(datosMascota);
+        objetoMascota.save((err) => {
+            if(err){
+                response.status(400);
+                response.json(err);
+            }else{
+                response.status(200);
+                response.json('{"status":"success"}');
+            }
+        });
+    }else{
+        response.status(400);
+        response.json(err);
+    }
+    
+}
+
+function validarMascota(mascota){
+    var constraints = {
+        nombre: {
+            presence: true,
+            length: {
+                maximun: 20,
+            }
+        },
+
+        especie:{
+            presence: true,
+            length: {
+                maximun: 20,
+            }
+        }, 
+        
+        raza:{
+            presence: true,
+            length: {
+                maximun: 20,
+            }
+        },
+
+        fechaNacimiento:{
+            presence: true,
+            format:{
+                pattern: "^[0-9]{4}-[0-3][0-9]-[0-3][0-9]$", 
+            }
+        },
+
+        numeroChip:{
+            presence: true,
+            length: {
+                is: 10,
+            }
+        },
+
+        urlImagen:{
+            presence: true,
         }
-    })
+    }
+    var errors = validate(mascota, constraints);
+    if(errors !=undefined){
+        return false;
+    }else{
+        return true;
+    }
 }
 
 module.exports.actualizarMascota = function (request, response) {
