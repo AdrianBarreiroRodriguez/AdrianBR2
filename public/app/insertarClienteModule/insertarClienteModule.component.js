@@ -6,11 +6,12 @@ angular.module('insertarClienteModule')
         controller: function($scope, $http) {
             console.log("Inicializando insertar-clientes-module")
         }
-    }).controller('InsertarClienteController', function($scope, $http, $location){
+    }).controller('InsertarClienteController', function($scope, $http, $location, clienteRESTService){
         $scope.cliente = {};
         $scope.insertarCliente = function(){
-            $http.post('api/clientes', $scope.cliente).then(function(response){
+            clienteRESTService.save($scope.cliente);
+            /*$http.post('api/clientes', $scope.cliente).then(function(response){
                 console.log(response);
-            });
+            });*/
         }
     });

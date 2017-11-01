@@ -1,24 +1,16 @@
-<div ng-controller="ActualizarClienteController">
-        <div>
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" ng-model="cliente.nombre">
-        </div>
-        <div>
-            <label for="apellidos">Apellidos</label>
-            <input type="text" name="apellidos" ng-model="cliente.apellidos">
-        </div>
-        <div>
-            <label for="dni">DNI</label>
-            <input type="text" name="dni" ng-model="cliente.dni">
-        </div>
-        <div>
-            <label for="telefono">Telefono</label>
-            <input type="text" name="telefono" ng-model="cliente.telefono">
-        </div>
-        <div>
-            <label for="notas">Notas</label>
-            <input type="text" name="notas" ng-model="cliente.notas">
-        </div>
-        <input type="button" value="actualizar" ng-click="actualizarCliente()">
-    </div>
+<div id="formulario_actualizar_cliente" ng-controller="ActualizarClienteController">
+        <entrada-datos data-etiqueta="Nombre" data-modelo="cliente.nombre" data-placeholder="nombre"></entrada-datos>
+        
+        <entrada-datos data-etiqueta="Apellidos" data-modelo="cliente.apellidos" data-placeholder="apellidos"></entrada-datos>
+        
+        <entrada-datos data-etiqueta="DNI" data-modelo="cliente.dni" data-placeholder="dni"></entrada-datos>
+        
+        <entrada-datos data-etiqueta="Email" data-modelo="cliente.email" data-placeholder="email"></entrada-datos>
+        
+        <entrada-datos data-etiqueta="Telefono" data-modelo="cliente.telefono" data-placeholder="telefono"></entrada-datos>
+        
+        <entrada-datos data-etiqueta="Notas" data-modelo="cliente.notas" data-placeholder="notas"></entrada-datos>
+    
+        <button ng-click="actualizarCliente()">actualizar</button>
+</div>
 

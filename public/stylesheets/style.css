@@ -115,6 +115,13 @@ li{
   width:40%;
 }
 
+#formulario_insertar_cliente{
+  width:40%;
+}
+#formulario_actualizar_cliente{
+  width:40%;
+}
+
 thead{
   color: midnightblue;
   font-size: 20px;

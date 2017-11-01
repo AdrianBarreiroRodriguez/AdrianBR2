@@ -121,6 +121,7 @@ module.exports.actualizarCliente = function (request, response) {
                 cliente.dni = clienteBody.dni;
                 cliente.telefono = clienteBody.telefono;
                 cliente.notas = clienteBody.notas;
+                cliente.email = clienteBody.email;
                 cliente.save(function (err) {
                     if(err) {
                         response.status(400);
