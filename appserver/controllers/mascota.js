@@ -97,31 +97,19 @@ function validarMascota(mascota){
 }
 
 module.exports.actualizarMascota = function (request, response) {
-    var idMascota = request.params.id;
     var mascotaBody = request.body;
-    Mascota.findById(idMascota,
-        function (err, mascota) {
-            if (!err) {
-                mascota.numeroChip = mascotaBody.numeroChip;
-                mascota.nombre = mascotaBody.nombre;
-                mascota.especie = mascotaBody.especie;
-                mascota.sexo = mascotaBody.sexo;
-                mascota.raza = mascotaBody.raza;
-                mascota.imagenUrl = mascotaBody.imagenUrl;
-                mascota.fechaNacimiento = mascotaBody.fechaNacimiento;
-                mascota.descripcion = mascotaBody.descripcion;
-                mascota.save(function (err, mascota) {
-                    if (err) {
-                        response.status(500);
-                        response.json(err);
-                    } else {
-                        response.status(200);
-                        response.json('{"status":"success"}');
-                    }
-                });
-            }
-        }
-    );
+    var v = mascotaBody.__v;
+    delete mascotaBody.__v;
+    Mascota.findByIdAndUpdate(mascotaBody._id, mascotaBody, {new : true}, function(err, customer) {
+		console.log("Updated Customer:", customer);
+		if (err) {
+			response.status(500);
+            response.json(err);
+		}else{
+			response.status(200);
+            response.json('{"status":"success"}');
+		}
+	});
 }
 
 module.exports.eliminarMascota = function (request, response) {
