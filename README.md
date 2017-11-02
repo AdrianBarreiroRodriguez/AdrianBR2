@@ -19,16 +19,6 @@ npm start
 
 # Arquitectura Mean: Mongodb + ExpressJs + AngularJs + NodeJs
 
-![Arquitectura Mean](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/MEAN-PetStore/master/public/images/ArquitecturaMean-1.png)
-
-![Arquitectura Mean](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/MEAN-PetStore/master/public/images/ArquitecturaMean-1.jpg)
-
-
-# El Equipo
-
-Aqui tenemos una foto del equipo de alto rendimiento en un momento de trabajo:
-
-![Foto de grupo](https://raw.githubusercontent.com/Curso-Fullstack-MEAN-Octubre2017/MEAN-PetStore/master/public/images/grupo_fullstack.jpg)
 
 # El Proyecto
 
