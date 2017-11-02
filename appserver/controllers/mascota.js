@@ -99,16 +99,19 @@ function validarMascota(mascota){
 module.exports.actualizarMascota = function (request, response) {
     var mascotaBody = request.body;
     var v = mascotaBody.__v;
-    delete mascotaBody.__v;
-    Mascota.findByIdAndUpdate(mascotaBody._id, mascotaBody, {new : true}, function(err, customer) {
-		console.log("Updated Customer:", customer);
+    mascotaBody.__v++;
+    Mascota.findOneAndUpdate( { _id: mascotaBody._id, __v: v}, mascotaBody, {new : true}, function(err, mascota) {
+		console.log("Mascota actualizada:", mascota);
 		if (err) {
 			response.status(500);
             response.json(err);
-		}else{
-			response.status(200);
+		}else if(mascota){
+            response.status(200);
             response.json('{"status":"success"}');
-		}
+		}else{
+            response.status(412);
+            response.json('{"message":"excepcion edicion concurrente"}');        
+        }
 	});
 }
 
@@ -123,7 +126,6 @@ module.exports.eliminarMascota = function (request, response) {
                 response.status(404);
                 response.send();
             }
-
         });
 }
 
