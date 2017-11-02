@@ -118,7 +118,12 @@ li{
 #formulario_insertar_cliente{
   width:40%;
 }
+
 #formulario_actualizar_cliente{
+  width:40%;
+}
+
+#formulario_actualizar_mascota{
   width:40%;
 }
 

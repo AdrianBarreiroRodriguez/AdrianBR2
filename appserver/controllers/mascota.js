@@ -76,14 +76,12 @@ function validarMascota(mascota){
                 pattern: "^[0-9]{4}-[0-3][0-9]-[0-3][0-9]$", 
             }
         },
-
         numeroChip:{
             presence: true,
             length: {
                 is: 10,
             }
         },
-
         urlImagen:{
             presence: true,
         }
