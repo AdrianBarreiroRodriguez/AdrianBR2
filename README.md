@@ -18,13 +18,39 @@ npm start
 
 
 # Arquitectura Mean: Mongodb + ExpressJs + AngularJs + NodeJs
+![Arquitectura Mean](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/master/imagenes%20README/Diagrama_de_arquitectura.jpg)
+
+##El navegador
+Programa para acceder y visualizar contenido web.
+
+##AngularJS
+Framework de JavaScript, que facilita la creación de SPA(Single Page Application). En mi aplicación se ejecuta en el cliente, aunque puede ejecutarse en una máquina servidor bajo Node.js.
+ 
+##El Servidor físico
+Máquina de procesamiento que provee servicios web a clientes HTTP: apps móviles, navegadores web, otros sistemas.
+
+##NodeJs
+Entorno de ejecución para la capa de servidor en una arquitectura cliente-servidor.
+
+##Express
+Framework para Node.js que provee de una interfaz más cómoda, que la que provee el propio Node.js, para implementar servicios web, además de proveer otras características.
+
+##Mongoose
+Driver para conectarse y hacer peticiones desde una aplicación Node.js a un servidor de bases de datos MongoDB.
+
+##Internet
+Red de computadores mundial que opera bajo los protocolos TCP/IP. La nube encima de los enlaces de comunicación significa que la comunicación entre los procesos se realiza utilizando la infraestructura proporcionada por Internet. En este caso, la capa de aplicación por encima de TCP/IP utiliza el protocolo HTTP para comunicarse entre Node y el navegador.
+
+
+##MongoDB
+Servidor de Bases de datos NoSQL. En mi diagrama de arquitectura se ejecuta en la misma máquina servidor que la aplicación Node.js, aunque también es posible que se aloje en una máquina servidor diferente.
 
 
 # El Proyecto
 
 Se trata de una aplicacion para gestionar las citas a una imaginaria clinica veterinaria.
 
-## Modelo de datos
+# Modelo de datos
 
 El principal objeto del modelo de negocio es:
 
@@ -60,5 +86,8 @@ Esta es una lista completa de los servicios web REST publicados con ExpressJs
 |  PUT  |  api/citas/:id  |  {JSON}  |  res.json(citaActualizada)|
 
 
+## Implementación entidad Cliente
+
+1.- Crear Schema con mongoose para Cliente. ![Schema Cliente](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/84ab8bd57c9c99325db3ac6b187787cc3fcb673f/appserver/models/clientes.js#L4)
 
 
