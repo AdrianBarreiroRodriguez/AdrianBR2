@@ -86,7 +86,7 @@ Esta es una lista completa de los servicios web REST publicados con ExpressJs
 |  PUT  |  api/citas/:id  |  {JSON}  |  res.json(citaActualizada)|
 
 
-## Implementación entidad Cliente
+# Implementación entidad Cliente
 
 - 1.- Crear Schema con mongoose para Cliente. ![Schema Cliente](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/84ab8bd57c9c99325db3ac6b187787cc3fcb673f/appserver/models/clientes.js#L4)
 - 2.- Crear rutas REST para hacer un CRUD sobre la entidad Cliente.
@@ -114,5 +114,69 @@ Y la configuración de las rutas angular asociadas a cada componente registrado 
 - 4.4.- Componente para mostrar datos cliente.
 	Creado en el archivo ![clienteDetalleModule.component.js](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/master/public/app/clienteDetalleModule/clienteDetalleModule.component.js)
 	Plantilla html del componente ![clienteDetalleModule.html](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/master/public/app/clienteDetalleModule/clienteDetalleModule.html)
+	
+
+# Integración en la aplicación de las tareas propuestas
+
+## 1.-Creación de directivas de AngularJS
+![directiva entradaDatos para formularios](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/master/public/app/directives/formulario-directives.js)
+
+![uso de la directiva entradaDatos en el formulario insertar cliente](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/55bfe699a7e47c70ee806439f8cb9b69a731c1bb/public/app/insertarClienteModule/insertarClienteModule.html#L2)
+
+
+## 2.-Validaciones en cliente y servidor con librería validate.js
+![validación al insertar una mascota en el cliente](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/insertarMascotaModule/insertarMascotaModule.component.js#L22)
+
+![validación al insertar una mascota en el servidor](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/38302e54ecb6bd8320ea8f0f3755111214c91f60/appserver/controllers/mascota.js#L32)
+
+
+## 3.-Creación de servicio en AngularJS
+![servicio que recupera mapa de citas del servidor](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/master/public/app/services/calendarioCitas-service.js)
+
+![utilización del servicio que recupera mapa de citas del servidor](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/55bfe699a7e47c70ee806439f8cb9b69a731c1bb/public/app/calendarioCitasModule/calendarioCitasModule.component.js#L19)
+
+
+## 4.-Comunicación entre componentes mediante eventos
+Eventos en componente citasPadreModule:
+![manejador evento cita:irModificarCitaClick](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/citasPadreModule.component.js#L9)
+![transmisión evento cita:irModificarCita](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/citasPadreModule.component.js#L10)
+![manejador evento cita:irCrearCitaClick](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/citasPadreModule.component.js#L12)
+![transmisión evento cita:irCrearCita](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/citasPadreModule.component.js#L13)
+![manejador evento cita:citaGuardadaExito](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/citasPadreModule.component.js#L15)
+![transmisión evento cita:refrescarHorarioCitas](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/citasPadreModule.component.js#L16)
+![manejador evento cita:citaActualizadaExito](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/citasPadreModule.component.js#L18)
+![transmisión evento cita:refrescarHorarioCitas](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/citasPadreModule.component.js#L19)
+
+
+Eventos en componente actualizarCitaModule:
+![manejador evento cita:irModificarCita](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/actualizarCitaModule/actualizarCitaModule.component.js#L10)
+![emisión evento cita:citaActualizadaExito](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/insertarCitaModule/insertarCitaModule.component.js#L37)
+
+Eventos en componente insertarCitaModule:
+![manejador evento cita:irCrearCita](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/insertarCitaModule/insertarCitaModule.component.js#L10)
+![emisión evento cita:citaGuardadaExito](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/insertarCitaModule/insertarCitaModule.component.js#L37)
+
+
+Eventos en componente horarioCitasModule:
+![manejador evento cita:refrescarHorarioCitas](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/horarioCitasModule/horarioCitasModule.component.js#L13)
+![emisión evento cita:irCrearCitaClick](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/horarioCitasModule/horarioCitasModule.component.js#L63)
+![emisión evento cita:irModificarCitaClick](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/public/app/citasPadreModule/horarioCitasModule/horarioCitasModule.component.js#L68)
+
+
+## 5.-Creación de un servicio AngularJS con NgResource para interactuar con api RESTful
+![creación de un servicio que utiliza ngResource](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/master/public/app/services/clienteREST-service.js)
+
+![uso del servicio que utiliza ngResource](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/55bfe699a7e47c70ee806439f8cb9b69a731c1bb/public/app/insertarClienteModule/insertarClienteModule.component.js#L12)
+
+
+## 6.-Refactorización de un servicio REST con promesas
+![promesas en servicio REST api/clientes](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/appserver/controllers/clientes.js#L9)
+
+![promesas en servicio REST api/clientes/mascotas](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/10e6a72684e7bf2fbc30547c09c2e5b525ca8c76/appserver/controllers/clientes.js#L25)
+
+
+## 7.-Optimistic locking
+![implementacion de control concurrente optimista en edición de mascotas](https://github.com/Curso-Fullstack-MEAN-Octubre2017/AdrianBR2/blob/fcb981c4ec29ed5b5b7d32bbaa034decbdacf2b7/appserver/controllers/mascota.js#L99)
+
 
 
