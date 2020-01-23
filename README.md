@@ -1,6 +1,6 @@
 # MEAN-PetStore
 
-Aplicacion Demo implementada como parte del curso Fullstack-Mean
+Aplicacion Demo implementada como parte del curso Fullstack-Mean.
 
 Se trata de una aplicacion para gestionar las citas a una imaginaria clinica veterinaria.
 
@@ -24,7 +24,7 @@ npm start
 Programa para acceder y visualizar contenido web.
 
 ## AngularJS
-Framework de JavaScript, que facilita la creación de SPA(Single Page Application). En mi aplicación se ejecuta en el cliente, aunque puede ejecutarse en una máquina servidor bajo Node.js.
+Framework de JavaScript que facilita la creación de SPA(Single Page Application). En mi aplicación se ejecuta en el cliente aunque puede ejecutarse en una máquina servidor bajo Node.js.
  
 ## El Servidor físico
 Máquina de procesamiento que provee servicios web a clientes HTTP: apps móviles, navegadores web, otros sistemas.
@@ -33,13 +33,13 @@ Máquina de procesamiento que provee servicios web a clientes HTTP: apps móvile
 Entorno de ejecución para la capa de servidor en una arquitectura cliente-servidor.
 
 ## Express
-Framework para Node.js que provee de una interfaz más cómoda, que la que provee el propio Node.js, para implementar servicios web, además de proveer otras características.
+Framework para implementar servicios web. Provee de una interfaz más cómoda que la que provee el propio Node.js.
 
 ## Mongoose
 Driver para conectarse y hacer peticiones desde una aplicación Node.js a un servidor de bases de datos MongoDB.
 
 ## Internet
-Red de computadores mundial que opera bajo los protocolos TCP/IP. La nube encima de los enlaces de comunicación significa que la comunicación entre los procesos se realiza utilizando la infraestructura proporcionada por Internet. En este caso, la capa de aplicación por encima de TCP/IP utiliza el protocolo HTTP para comunicarse entre Node y el navegador.
+Red de computadores que opera bajo los protocolos TCP/IP. La nube encima de los enlaces de comunicación significa que la comunicación entre los procesos se realiza utilizando la infraestructura proporcionada por Internet. En este caso, la capa de aplicación por encima de TCP/IP utiliza el protocolo HTTP para comunicarse entre Node y el navegador.
 
 
 ## MongoDB
